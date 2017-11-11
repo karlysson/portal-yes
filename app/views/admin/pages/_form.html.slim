@@ -1,0 +1,18 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Página
+      .box-body
+       = simple_form_for([:admin, @page]) do |f|
+        = f.error_notification
+
+        .form-inputs
+    		  = f.select(:status,[['Ativo', 'a'], ['Inativo', 'i']],{},input_html: {value: 'b'}, :class => 'form-control')
+    		  = f.input :name
+    		  = f.input :title
+    		  = f.input :summary
+    		  = f.input :description, as: :ckeditor, :class=>"form-control"
+        .form-actions
+          = f.button :submit, :class => "btn btn-success"
+
+  a.btn.btn-primary href="/admin/pages"  Voltar

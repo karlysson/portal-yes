@@ -1,0 +1,30 @@
+nav.navbar.navbar-static-top role="navigation"
+
+  a.sidebar-toggle data-toggle="offcanvas" href="#" role="button"
+    span.sr-only Toggle navigation
+  .navbar-custom-menu
+    ul.nav.navbar-nav
+
+
+      li.dropdown.user.user-menu
+        a href="/admin/users/#{current_user.id}/edit"
+          img.user-image alt=("User Image") src="#{current_user.photo}" /
+          span.hidden-xs = current_user.name
+        ul.dropdown-menu
+
+      li.dropdown.messages-menu
+        a.dropdown-toggle href="/"
+          i.fa.fa-chrome
+          span.hidden-xs  Site
+
+      li.dropdown.messages-menu
+        a.dropdown-toggle href="/users/sign_out" data-method="DELETE"
+          i.fa.fa-sign-out
+          span.hidden-xs Sair
+
+
+
+
+
+
+

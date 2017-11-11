@@ -1,0 +1,43 @@
+/ section.content-header
+/   h1
+/     | Interação Vaga
+/     small Adminitrativo
+/   ol.breadcrumb
+/     li
+/       a href="/admin"
+/         i.fa.fa-buysellads
+/         | Home
+/     li.active Vaga
+
+/ br
+
+/ .col-xs-12
+/   .box.box-primary
+/     .box-header
+/       h3.box-title
+/         | Interação Vaga
+/     .box-body
+/       table.table.table-bordered.table-striped
+/         thead
+/           tr
+/             th Id
+/             th Página
+/             th Página
+/             th Vaga
+/             th Curso
+/             th
+/         tbody
+/           - @job_interations.each do |job_interation|
+/             tr
+/               td = job_interation.id
+/               td = job_interation.page
+/               td = job_interation.page_id
+/               td = job_interation.job.name
+/               td = job_interation.course.name
+/               td
+/                 a.btn.btn-default.fa.fa-search href="/admin/job_interations/#{job_interation.id}"
+/                 a.btn.btn-default.fa.fa-edit href="/admin/job_interations/#{job_interation.id}/edit"
+/                 a.btn.btn-default.fa.fa-times href="/admin/job_interations/#{job_interation.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{job_interation} ?"}
+/       = will_paginate @job_interations, renderer: BootstrapPagination::Rails
+
+/   a.btn.btn-primary href="/admin/job_interations/new"  Nova Interação

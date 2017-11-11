@@ -1,0 +1,16 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Referência
+      .box-body
+       = simple_form_for([:admin, @reference]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :name
+          = f.input :phone
+          = f.association :user
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/references"  Voltar

@@ -1,0 +1,45 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+
+section.content-header
+  h1
+    | Visualizar Curso de Integração
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-map
+        | Home
+    li.active Cursos
+    li
+      a href="/admin/course_interations" Curso de Integração
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Curso de Integração
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Curso:
+        a = " #{@course_interation.course.name}"
+      li.list-group-item
+        b Usuário:
+        a = " #{@course_interation.user.name}"
+      li.list-group-item
+        b Página:
+        a = " #{@course_interation.page}"
+      li.list-group-item
+        b Código da Página:
+        a = " #{@course_interation.page_id}"
+      li.list-group-item
+        b Outras:
+        a = " #{@course_interation.others}"
+  a.btn.btn-primary href="/admin/course_interations"
+      b Voltar

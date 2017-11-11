@@ -1,0 +1,40 @@
+= simple_form_for([:admin, @user], html: { class: 'form-horizontal' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+      .col-xs-4
+        .box.box-primary
+          .box-header.with-border
+            h3.box-title Usuário
+            .box-body
+                = image_tag @user.photo.url(:medium)
+                = f.input :photo, as: :file
+      .col-xs-8
+        .box.box-primary
+          .box-header.with-border
+            h3.box-title Dados do Usuário
+            .box-body
+              = f.label "Sexo"
+              = f.select(:sex,[['Homem', 'h'], ['Mulher', 'm']],{},input_html: {value: 'h'}, :class => 'form-control')
+              = f.label "Status"
+              = f.select(:status,[['Ativo', 'a'], ['Inativo', 'i']],{},input_html: {value: 'i'}, :class => 'form-control')
+              .col-xs-12
+                = f.input :name, :class => 'form-control'
+                - if current_user.permission.prefix == "a"
+                  /ADMIN
+                  = f.association :permission
+                  = f.input :email
+                  = f.input :password
+                  = f.input :password_confirmation
+        .form-actions
+
+          / = f.button :submit, :class => "btn  btn-success"
+          / a href="/admin/users"
+          /   .btn.bg-primary.margin  Voltar
+
+          = f.button :submit, :class => "btn btn-success submit"
+          a href="/admin/users"
+            .btn.bg-primary.margin  Voltar
+
+
+

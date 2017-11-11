@@ -1,0 +1,36 @@
+# MySQL. Versions 5.0 and up are supported.
+#
+# Install the MySQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
+#
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  database: site_portal-yes
+  # host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: site_portal-yes
+  username: root
+  password: root
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  # password: Yesshop@488
+  # socket: /var/run/mysqld/mysqld.sock
+
+#   <<: *default
+#   database: portal-yes_test
+
+production:
+  <<: *default
+  database: site_portal-yes
+  username: root
+  password: Yesshop@488
+  socket: /var/run/mysqld/mysqld.sock

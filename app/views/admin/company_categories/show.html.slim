@@ -1,0 +1,32 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Categoria de Empresa
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-institution
+        | Home
+    li.active Empresas
+    li
+      a href="/admin/company_categories" Categorias
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Categoria de Empresa
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Nome:
+        a = " #{@company_category.name}"
+  a.btn.btn-primary href="/admin/company_categories"
+      b Voltar

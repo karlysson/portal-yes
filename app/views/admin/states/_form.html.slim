@@ -1,0 +1,15 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Estados
+      .box-body
+       = simple_form_for([:admin, @state]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :name
+          = f.input :sigla
+        .form-actions
+          = f.button :submit, :class => "btn btn-success"
+
+  a.btn.btn-primary href="/admin/states"  Voltar

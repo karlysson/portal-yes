@@ -1,0 +1,56 @@
+- if current_user.permission.prefix == "e"
+  aside.main-sidebar
+    section.sidebar
+      .user-panel
+        .pull-left.image
+          img.img-circle alt=("User Image") src="#{current_user.photo.url(:thumb)}"
+        .pull-left.info
+          p = current_user.name
+          a href="/admin"
+            i.fa.fa-circle.text-success
+            = current_user.permission.name
+
+      form.sidebar-form action="#" method="get"
+        .input-group
+          input.form-control name="q" placeholder="Search..." type="text"
+          span.input-group-btn
+            button#search-btn.btn.btn-flat name="search" type="submit"
+              i.fa.fa-search
+
+      ul.sidebar-menu
+        li.header MENU
+
+
+        li
+          a href="/admin"
+            i.fa.fa-circle-o.text-aqua
+            span HOME
+
+        li
+          a href="/admin/contacts" onclick="refresh();"
+            i.fa.fa-male
+            span Contatos
+
+
+        /Vagas
+        li
+          a href="/admin/jobs"
+            i.fa.fa-vimeo-square
+            span Vagas
+
+        /Vagas
+        li
+          a href="/admin/curriculums"
+            i.fa.fa-contao
+            span Currículos
+
+
+        /Usuários
+        li
+          a href="/admin/users/#{current_user.id}/edit"
+            i.fa.fa-user-plu
+            span Usuário
+
+
+
+

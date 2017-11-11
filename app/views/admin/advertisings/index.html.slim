@@ -1,0 +1,63 @@
+section.content-header
+  h1
+    | Anúncios
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-adn
+        | Home
+    li
+      a href="/admin/advertisings" Anúcios
+
+br
+
+.col-xs-12
+  .box.box-primary.box-solid
+    .box-header.with-border
+      h3.box-title
+        | Pesquisar
+      .box-tools.pull-right
+        button.btn.btn-box-tool data-widget="collapse" type="button"
+          i.fa.fa-minus
+    .box-body
+        .col-xs-12
+          form accept-charset="UTF-8" action="/admin/advertisings" method="get"
+            input name="utf8" type="hidden" value="✓"
+            .input-group.input-group-sm
+              input#search.form-control name="search"
+              / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+              span.input-group-btn
+                input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+.col-xs-12
+  .box.box-primary
+    .box-header
+      h3.box-title
+        | Anúcios
+    .box-body
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th Imagem
+            th Nome
+            th Categoria
+            th Empresa
+            th Telefone
+            th E-mail
+            th
+        tbody
+          - @advertisings.each do |advertising|
+            tr
+              td = image_tag advertising.cover.url(:thumb)
+              td = advertising.name
+              td = advertising.advertising_category.name
+              td = advertising.company.name
+              td = advertising.phone
+              td = advertising.email
+              td
+                a.btn.btn-default.fa.fa-search href="/admin/advertisings/#{advertising.id}"
+                a.btn.btn-default.fa.fa-edit href="/admin/advertisings/#{advertising.id}/edit"
+      = will_paginate @advertisings, renderer: BootstrapPagination::Rails
+
+  a.btn.btn-primary href="/admin/advertisings/new"  Novo Anúncio

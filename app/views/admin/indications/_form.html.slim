@@ -1,0 +1,22 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Indicação
+      .box-body
+       = simple_form_for([:admin, @indication]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :name
+          = f.association :user
+          = f.input :page
+          = f.input :page_id
+          = f.input :phone
+          = f.input :cell
+          = f.input :email
+          = f.input :profession
+          = f.input :obs
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/indications"  Voltar

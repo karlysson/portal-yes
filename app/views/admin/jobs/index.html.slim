@@ -1,0 +1,334 @@
+section.content-header
+  h1
+    | Vagas
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-vimeo-square
+        | Home
+    li
+     a href="/admin/jobs" Vagas
+
+  br
+  .row
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-aqua
+          span.glyphicon.glyphicon-retweet
+        .info-box-content
+          span.info-box-text Aguardando Atendimento
+          span.info-box-number
+            = @aguardando.size
+
+
+    .clearfix.visible-sm-block
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-yellow
+          span.glyphicon.glyphicon-thumbs-up
+        .info-box-content
+          span.info-box-text Em Análise
+          span.info-box-number
+            = @analise.size
+
+
+
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-red
+          span.glyphicon.glyphicon-thumbs-down
+        .info-box-content
+          span.info-box-text Cancelado
+          span.info-box-number
+            = @cancelado.size
+
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-green
+          span.glyphicon.glyphicon-briefcase
+        .info-box-content
+          span.info-box-text Concluído
+          span.info-box-number
+            = @concluido.size
+br
+.col-xs-12
+  .box.box-primary.box-solid
+    .box-header.with-border
+      h3.box-title
+        | Pesquisar
+      .box-tools.pull-right
+        button.btn.btn-box-tool data-widget="collapse" type="button"
+          i.fa.fa-minus
+    .box-body
+      .row
+        .col-sm-12
+          form accept-charset="UTF-8" action="/admin/jobs" method="get"
+            input name="utf8" type="hidden" value="✓"
+            .input-group.input-group-sm
+              input#search.form-control name="search"
+              / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+              span.input-group-btn
+                input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+.col-xs-12
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#todos"  Todos
+      li
+        a data-toggle="tab" href="#aguardando"  Aguardando Atendimento
+      li
+        a data-toggle="tab" href="#analise"  Em Análise
+      li
+        a data-toggle="tab" href="#cancelado"  Cancelado
+      li
+        a data-toggle="tab" href="#concluido"  Concluído
+    .tab-content
+
+
+      / Todos
+      #todos.tab-pane.active
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Vagas - Todos
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th Empresa
+                    th Perfil
+                    th Cargo
+                    th Status
+                    th
+                tbody
+                  - @todos.each do |job|
+                    tr
+                      td = job.id
+                      td = job.name
+                      td = job.company.name
+                      td = job.curriculum_profile.name
+                      td = job.curriculum_office.name
+                      td
+                        - if job.status == "c"
+                          = " Concluído"
+                        - elsif job.status == "e"
+                          = " Em análise"
+                        - elsif job.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Aguardando"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/jobs/#{job.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/jobs/#{job.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/jobs/#{job.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{job.name} ?"}
+              = will_paginate @todos, renderer: BootstrapPagination::Rails
+
+
+
+      / Aguardando Atendimento
+      #aguardando.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Vagas - Aguardando Atendimento
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th Empresa
+                    th Perfil
+                    th Cargo
+                    th Status
+                    th
+                tbody
+                  - @aguardando.each do |job|
+                    tr
+                      td = job.id
+                      td = job.name
+                      td = job.company.name
+                      td = job.curriculum_profile.name
+                      td = job.curriculum_office.name
+                      td
+                        - if job.status == "c"
+                          = " Concluído"
+                        - elsif job.status == "e"
+                          = " Em análise"
+                        - elsif job.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Aguardando"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/jobs/#{job.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/jobs/#{job.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/jobs/#{job.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{job.name} ?"}
+              = will_paginate @aguardando, renderer: BootstrapPagination::Rails
+
+
+      / Em Atendimento
+      #analise.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Vagas - Em Análise
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Cógido
+                    th Nome
+                    th Empresa
+                    th Perfil
+                    th Cargo
+                    th Status
+                    th
+                tbody
+                  - @analise.each do |job|
+                    tr
+                      td = job.id
+                      td = job.name
+                      td = job.company.name
+                      td = job.curriculum_profile.name
+                      td = job.curriculum_office.name
+                      td
+                        - if job.status == "c"
+                          = " Concluído"
+                        - elsif job.status == "e"
+                          = " Em análise"
+                        - elsif job.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Aguardando"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/jobs/#{job.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/jobs/#{job.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/jobs/#{job.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{job.name} ?"}
+              = will_paginate @analise, renderer: BootstrapPagination::Rails
+
+
+      / Cancelado
+      #cancelado.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Vagas - Cancelado
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th Empresa
+                    th Perfil
+                    th Cargo
+                    th Status
+                    th
+                tbody
+                  - @cancelado.each do |job|
+                    tr
+                      td = job.id
+                      td = job.name
+                      td = job.company.name
+                      td = job.curriculum_profile.name
+                      td = job.curriculum_office.name
+                      td
+                        - if job.status == "c"
+                          = " Concluído"
+                        - elsif job.status == "e"
+                          = " Em análise"
+                        - elsif job.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Aguardando"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/jobs/#{job.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/jobs/#{job.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/jobs/#{job.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{job.name} ?"}
+              = will_paginate @cancelado, renderer: BootstrapPagination::Rails
+
+
+      / Cancluído
+      #concluido.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Vagas - Concluído
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th Empresa
+                    th Perfil
+                    th Cargo
+                    th Status
+                    th
+                tbody
+                  - @concluido.each do |job|
+                    tr
+                      td = job.id
+                      td = job.name
+                      td = job.company.name
+                      td = job.curriculum_profile.name
+                      td = job.curriculum_office.name
+                      td
+                        - if job.status == "c"
+                          = " Concluído"
+                        - elsif job.status == "e"
+                          = " Em análise"
+                        - elsif job.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Aguardando"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/jobs/#{job.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/jobs/#{job.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/jobs/#{job.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{job.name} ?"}
+              = will_paginate @concluido, renderer: BootstrapPagination::Rails
+
+  a.btn.btn-primary href="/admin/jobs/new"  Nova Vaga
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,217 @@
+section.content-header
+  h1
+    | Currículos
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-contao
+        | Home
+    li
+     a href="/admin/curriculums" Currículos
+
+  br
+  .row
+    .col-md-4.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-aqua
+          span.glyphicon.glyphicon-retweet
+        .info-box-content
+          span.info-box-text Aguardando
+          span.info-box-number
+            = @aguardando.size
+
+    .clearfix.visible-sm-block
+    .col-md-4.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-green
+          span.glyphicon.glyphicon-thumbs-up
+        .info-box-content
+          span.info-box-text Aprovado
+          span.info-box-number
+            = @aprovado.size
+
+    .col-md-4.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-yellow
+          span.glyphicon.glyphicon-briefcase
+        .info-box-content
+          span.info-box-text Empregado
+          span.info-box-number
+            = @empregado.size
+
+
+
+br
+
+.col-md-12
+  .box.box-primary.box-solid
+    .box-header.with-border
+      h3.box-title
+        | Pesquisar
+      .box-tools.pull-right
+        button.btn.btn-box-tool data-widget="collapse" type="button"
+          i.fa.fa-minus
+    .box-body
+      .row
+        .col-sm-12
+          form accept-charset="UTF-8" action="/admin/curriculums" method="get"
+            input name="utf8" type="hidden" value="✓"
+            .input-group.input-group-sm
+              input#search.form-control name="search"
+              / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+              span.input-group-btn
+                input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+section.content
+  .row
+    .col-md-12
+      .nav-tabs-custom
+        ul.nav.nav-tabs
+          li.active
+            a data-toggle="tab" href="#tab_0"  Todos
+          li
+            a data-toggle="tab" href="#tab_1"  Aguardando
+          li
+            a data-toggle="tab" href="#tab_2"  Aprovado
+          li
+            a data-toggle="tab" href="#tab_3"  Empregado
+        .tab-content
+
+
+          #tab_0.tab-pane.active
+            br
+              .box
+                .box-header
+                  h3.box-title
+                    | Currículos - Todos
+                .box-body
+                  table.table.table-bordered.table-striped
+                    thead
+                      tr
+                        th Código
+                        th Nome
+                        th Celular
+                        th E-mail
+                        th Status
+                        th
+                    tbody
+                      - @todos.each do |curriculum|
+                        tr
+                          td = curriculum.id
+                          td = curriculum.name
+                          td = curriculum.cell_phone
+                          td = curriculum.email
+                          td
+                            - if curriculum.status == "a"
+                              = " Aguardando"
+                            - elsif curriculum.status == "p"
+                              = "Aprovado"
+                            - elsif curriculum.status == "e"
+                              = "Empregado"
+                          td
+                            a.btn.btn-default.fa.fa-search href="/admin/curriculums/#{curriculum.id}"
+                            a.btn.btn-default.fa.fa-edit href="/admin/curriculums/#{curriculum.id}/edit"
+                  = will_paginate @todos, renderer: BootstrapPagination::Rails
+
+          #tab_1.tab-pane
+            br
+              .box
+                .box-header
+                  h3.box-title
+                    | Currículos - Aguardando
+                .box-body
+                  table.table.table-bordered.table-striped
+                    thead
+                      tr
+                        th Código
+                        th Nome
+                        th Celular
+                        th E-mail
+                        th Status
+                        th
+                    tbody
+                      - @aguardando.each do |curriculum|
+                        tr
+                          td = curriculum.id
+                          td = curriculum.name
+                          td = curriculum.cell_phone
+                          td = curriculum.email
+                          td
+                            - if curriculum.status == "a"
+                              = " Aguardando"
+                          td
+                            a.btn.btn-default.fa.fa-search href="/admin/curriculums/#{curriculum.id}"
+                            a.btn.btn-default.fa.fa-edit href="/admin/curriculums/#{curriculum.id}/edit"
+                  = will_paginate @aguardando, renderer: BootstrapPagination::Rails
+
+
+
+
+          #tab_2.tab-pane
+            br
+              .box
+                .box-header
+                  h3.box-title
+                    | Currículos - Aprovado
+                .box-body
+                  table.table.table-bordered.table-striped
+                    thead
+                      tr
+                        th Código
+                        th Nome
+                        th Celular
+                        th E-mail
+                        th Status
+                        th
+                    tbody
+                      - @aprovado.each do |curriculum|
+                        tr
+                          td = curriculum.id
+                          td = curriculum.name
+                          td = curriculum.cell_phone
+                          td = curriculum.email
+                          td
+                            - if curriculum.status == "p"
+                              = " Aprovado"
+                          td
+                            a.btn.btn-default.fa.fa-search href="/admin/curriculums/#{curriculum.id}"
+                            a.btn.btn-default.fa.fa-edit href="/admin/curriculums/#{curriculum.id}/edit"
+                  = will_paginate @aprovado, renderer: BootstrapPagination::Rails
+
+
+          #tab_3.tab-pane
+            br
+              .box
+                .box-header
+                  h3.box-title
+                    | Currículos - Empregado
+                .box-body
+                  table.table.table-bordered.table-striped
+                    thead
+                      tr
+                        th Código
+                        th Nome
+                        th Celular
+                        th E-mail
+                        th Status
+                        th
+                    tbody
+                      - @empregado.each do |curriculum|
+                        tr
+                          td = curriculum.id
+                          td = curriculum.name
+                          td = curriculum.cell_phone
+                          td = curriculum.email
+                          td
+                            - if curriculum.status == "e"
+                              = " Empregado"
+                          td
+                            a.btn.btn-default.fa.fa-search href="/admin/curriculums/#{curriculum.id}"
+                            a.btn.btn-default.fa.fa-edit href="/admin/curriculums/#{curriculum.id}/edit"
+                  = will_paginate @empregado, renderer: BootstrapPagination::Rails
+
+      a.btn.btn-primary href="/admin/curriculums/new"  Novo Currículo
+
+
+

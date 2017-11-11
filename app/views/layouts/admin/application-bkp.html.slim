@@ -1,0 +1,56 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    title Admin
+    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"
+    = csrf_meta_tags
+    = favicon_link_tag 'yes.ico'
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    / = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+
+
+
+
+    = stylesheet_link_tag    '/admin/bootstrap/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/dist/css/AdminLTE.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/dist/css/skins/_all-skins.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/plugins/iCheck/flat/blue.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/plugins/morris/morris.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/plugins/datepicker/datepicker3.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/plugins/daterangepicker/daterangepicker-bs3.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    '/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+
+  body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      header.main-header
+        /! Logo
+        a.logo href="/admin"
+          /! mini logo for sidebar mini 50x50 pixels
+          span.logo-mini
+            b> Y
+            | ES
+          /! logo for regular state and mobile devices
+          span.logo-lg
+            | Portal
+            b YES
+        = render 'layouts/admin/top'
+      /! Left side column. contains the logo and sidebar
+      = render 'layouts/admin/siderbar/sidebar'
+
+      /! Content Wrapper. Contains page content
+      .content-wrapper
+        = yield
+
+      = render 'layouts/admin/footer'
+
+// javascript:
+//   function refresh(){
+//     window.location.reload();
+//   }

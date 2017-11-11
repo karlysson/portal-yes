@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/site/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <%=  favicon_link_tag 'yes.ico' %>
+
+    <title>YES</title>
+</head>
+<body>
+    
+    <%= render 'devise/registrations/navbar'%>
+   
+
+
+ 		<div class="panel-heading text-center">
+            <h3>PAINEL DE CONTROLE </h3>
+        </div>
+
+
+    <div class="container">
+
+		<h2>Sign up2</h2>
+
+		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
+
+		  <div class="form-inputs">
+		    <%= f.input :email, required: true, autofocus: true %>
+		    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+		    <%= f.input :password_confirmation, required: true %>
+		  </div>
+
+		  <div class="form-actions">
+		    <%= f.button :submit, "Sign up" %>
+		  </div>
+		<% end %>
+
+		<%= render "devise/shared/links" %>
+    </div>
+
+</body>
+</html>

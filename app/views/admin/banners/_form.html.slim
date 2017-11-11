@@ -1,0 +1,29 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Baner
+      .box-body
+       = simple_form_for([:admin, @banner]) do |f|
+        = f.error_notification
+
+        
+        .form-inputs
+          = f.input :name
+          = image_tag @banner.image.url(:thumb)
+          br
+          = f.file_field :image
+          = f.input :order
+          = f.input :url
+          = f.label "Status"
+          = f.select(:status, ['Inativo', 'Ativo'],{},input_html: {value: 'Inativo'}, :class => 'form-control')
+          br
+          = f.label "Forma de Abrir o link."
+          = f.select(:target, [["Abrir na mesma janela", ""], ["Abrir uma nova janela","_blank"]],{},input_html: {value: ''}, :class => 'form-control')
+
+          br
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/banners"  Voltar
+
+               

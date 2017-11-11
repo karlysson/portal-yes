@@ -1,0 +1,28 @@
+doctype html
+html lang="en" 
+  head
+    meta charset="UTF-8"
+    /! Latest compiled and minified CSS
+    link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+    link href="/site/css/style.css" rel="stylesheet"
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" 
+    script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    =  favicon_link_tag 'yes.ico'
+    = csrf_meta_tags
+    = favicon_link_tag 'yes.ico' 
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    title YES
+  body
+
+ 
+  .modal-header
+    a.class.pull-right data-dismiss="modal" href="#" 
+      span.glyphicon.glyphicon-remove
+    h3.modal-title ANÚNCIO
+
+  .modal-body
+    .row
+      .col-md-12.text-center
+        = yield
+
+

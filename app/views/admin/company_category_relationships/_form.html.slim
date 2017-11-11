@@ -1,0 +1,15 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Categoria Relacional
+      .box-body
+       = simple_form_for([:admin, @company_category_relationship]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.association :company
+          = f.association :company_category
+        .form-actions
+          = f.button :submit, :class => "btn btn-success"
+
+  a.btn.btn-primary href="/admin/company_category_relationships"  Voltar

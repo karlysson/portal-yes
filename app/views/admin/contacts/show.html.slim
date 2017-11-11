@@ -1,0 +1,54 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Contato
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-male
+        | Home
+    li
+     a href="/admin/contacts" Contatos
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Contato
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Status:
+        a
+          - if @contact.status == "a"
+            = " Aguardando"
+          - elsif @contact.status == "e"
+            = " Em atendimento"
+          - elsif @contact.status == "c"
+            = " Cancelado"
+          - else
+            = " Concluído"
+      li.list-group-item
+        b Nome:
+        a = " #{@contact.name}"
+      li.list-group-item
+        b E-mail:
+        a = " #{@contact.email}"
+      li.list-group-item
+        b Telefone:
+        a = " #{@contact.phone}"
+      li.list-group-item
+        b Assunto:
+        a = " #{@contact.subject}"
+      li.list-group-item
+        b Mensagem:
+        a = " #{@contact.message}"
+  a.btn.btn-primary href="/admin/contacts"
+      b Voltar

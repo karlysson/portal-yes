@@ -1,0 +1,189 @@
+section.content-header
+  h1
+    | Home
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-dashboard
+        | Home
+    li.active Dashboard
+/! Main content
+section.content
+  /! Small boxes (Stat box)
+  .row
+    .col-lg-2.col-xs-6
+      /! small box
+      .small-box.bg-aqua
+        .inner
+          h3 = @advertisings.size
+          p Anúncios
+        .icon
+          i.ion.ion-bag
+        a.small-box-footer href="/admin/advertisings"
+          | Veja todos
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-2.col-xs-6
+      /! small box
+      .small-box.bg-green
+        .inner
+          h3 = @curriculums.size
+            |
+          p Currículos
+        .icon
+          / i.ion.ion-android-clipboard
+          i.ion.ion-clipboard
+          / i.ion.ion-android-list
+        a.small-box-footer href="/admin/curriculums"
+          | Veja todos
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-2.col-xs-6
+      /! small box
+      .small-box.bg-red
+        .inner
+          h3 = @jobs.size
+          p Vagas
+        .icon
+          / i.ion-ios-paper-outline
+          i.ion-ribbon-b
+        a.small-box-footer href="/admin/jobs"
+          | Veja todos
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-2.col-xs-6
+      /! small box
+      .small-box.bg-yellow
+        .inner
+          h3 = @users.size
+          p Usuários
+        .icon
+          i.ion.ion-person-add
+        a.small-box-footer href="/admin/users"
+          | Veja todos
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-2.col-xs-6
+      /! small box
+      .small-box.bg-gray
+        .inner
+          h3 = @companies.size
+          p Empresas
+        .icon
+          i.ion.ion-ios-home
+          / i.ion.ion-android-mail
+        a.small-box-footer href="/admin/companies"
+          | Veja todos
+          i.fa.fa-arrow-circle-right
+    .col-lg-2.col-xs-6
+      /! small box
+      .small-box.bg-primary
+        .inner
+          h3 = @contacts.size
+          p Contatos
+        .icon
+          / i.ion-ios-email-outline
+          i.ion.ion-android-mail
+        a.small-box-footer href="admin/contacts"
+          | Veja todos
+          i.fa.fa-arrow-circle-right
+
+    .col-md-12
+      .col-md-8
+        .box.box-info
+          .box-header.with-border
+            h3.box-title Contatos - Aguardando Atendimento
+            .box-tools.pull-right
+              button.btn.btn-box-tool data-widget="collapse" type="button"
+                i.fa.fa-minus
+              button.btn.btn-box-tool data-widget="remove" type="button"
+                i.fa.fa-times
+          .box-body
+            .table-responsive
+              table.table.no-margin
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th E-mail
+                    th Telefone
+                    th
+                tbody
+                  - @contacts_limited.each do |contact|
+                    tr
+                      td = contact.id
+                      td = contact.name
+                      td = contact.email
+                      td = contact.phone
+
+
+
+      .col-md-4
+        .box.box-success
+          .box-header.with-border
+            h3.box-title Empresas
+            .box-tools.pull-right
+              span.label.label-success = "#{@companies.size} Cadastrados"
+              button.btn.btn-box-tool data-widget="collapse" type="button"
+                i.fa.fa-minus
+              button.btn.btn-box-tool data-widget="remove" type="button"
+                i.fa.fa-times
+          .box-body.no-padding
+            ul.users-list.clearfix
+                - @companies.each do |company|
+                  li
+                    img alt=("User Image") src= "#{company.logo.url(:thumb)}"  /
+                    a.users-list-name href="/admin/companies/#{company.id}" = company.title
+          .box-footer.text-center
+            a.uppercase href="/admin/companies"  Todas Empresas
+
+
+    .col-md-12
+      .col-md-8
+        .box.box-danger
+          .box-header.with-border
+            h3.box-title Curruculum - Aguardando Aprovação
+            .box-tools.pull-right
+              button.btn.btn-box-tool data-widget="collapse" type="button"
+                i.fa.fa-minus
+              button.btn.btn-box-tool data-widget="remove" type="button"
+                i.fa.fa-times
+          .box-body
+            .table-responsive
+              table.table.no-margin
+                thead
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th Celular
+                    th E-mail
+                    th
+                tbody
+                  - @curriculums.each do |curriculum|
+                    tr
+                      td = curriculum.id
+                      td = curriculum.name
+                      td = curriculum.cell_phone
+                      td = curriculum.email
+
+
+      .col-md-4
+        .box.box-warning
+          .box-header.with-border
+            h3.box-title Usuários
+            .box-tools.pull-right
+              span.label.label-warning  = "#{@users.size} Cadastrados"
+              button.btn.btn-box-tool data-widget="collapse" type="button"
+                i.fa.fa-minus
+              button.btn.btn-box-tool data-widget="remove" type="button"
+                i.fa.fa-times
+          .box-body.no-padding
+            ul.users-list.clearfix
+                - @users_limited.each do |user|
+                  li
+                    img alt=("User Image") src= "#{user.photo.url(:thumb)}" /
+                    a.users-list-name href="/admin/users/#{user.id}" = user.name
+          .box-footer.text-center
+            a.uppercase href="/admin/users"  Todos Usuários

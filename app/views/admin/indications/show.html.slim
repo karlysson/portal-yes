@@ -1,0 +1,50 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Indicação
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-contao
+        | Home
+    li.active Currículos
+    li
+      a href="/admin/indications" Indicação
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | indicação
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Nome:
+        a = " #{@indication.name}"
+      li.list-group-item
+        b Usuário:
+        a = " #{@indication.user.name}"
+      li.list-group-item
+        b Página:
+        a = " #{@indication.page}"
+      li.list-group-item
+        b Cód. Página:
+        a = " #{@indication.page_id}"
+      li.list-group-item
+        b Telefone:
+        a = " #{@indication.phone}"
+      li.list-group-item
+        b Profissão:
+        a = " #{@indication.profession}"
+      li.list-group-item
+        b Obs:
+        a = " #{@indication.obs}"
+  a.btn.btn-primary href="/admin/indications"
+      b Voltar

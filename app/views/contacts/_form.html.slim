@@ -1,0 +1,40 @@
+.container
+  .col-xs-12
+    .box.box-primary
+      .box-header.with-border
+        h3.box-title Contato
+        .box-body
+          - if notice != nil
+            .alert.alert-success.text-center
+              h4 = notice
+          = simple_form_for(@contact) do |f|
+            = f.error_notification
+            .col-xs-7
+              .form-inputs
+                br
+                = f.input :name,    label: false, :placeholder=>"Nome"
+                = f.input :email,   label: false, :placeholder=>"E-mail"
+                = f.input :phone,   label: false, :placeholder=>"Telefone"
+                = f.select(:subject,[['Diversos', 'd'],['Anúncio', 'a'], ['Curriculum', 'c'],['Vagas', 'v'],['Reclamação','r']],{},input_html: {value: 'h'}, :class => 'form-control')
+                br
+                = f.input :message, label: false, :placeholder=>"Mensagem", input_html: { size: "25x5" }
+              .form-actions
+                = f.button :submit, 'Enviar', :class => "btn  btn-success"
+              br
+            .col-xs-5
+              br
+              span.fa.fa-clock-o.fa-fw 
+              = " das 09h00 às 21h00"
+              br
+              br
+              span.fa.fa-home.fa-fw 
+              = " Ligue: (62) 3223-6100"
+              br
+              br
+              span.fa.fa-home.fa-fw 
+              = " WhatsApp: (62) 99236-1400"
+              br
+              br
+              span.fa.fa-map-marker.fa-fw 
+              = " Av. Tocantins, nº 488, Centro, Goiânia/GO - 74025-020"
+            

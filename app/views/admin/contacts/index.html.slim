@@ -1,0 +1,311 @@
+section.content-header
+  h1
+    | Contatos
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-male
+        | Home
+    li
+     a href="/admin/contacts" Contatos
+
+  br
+  .row
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-aqua
+          span.glyphicon.glyphicon-retweet
+        .info-box-content
+          span.info-box-text Aguardando Atendimento
+          span.info-box-number
+            = @aguardando.size
+
+
+    .clearfix.visible-sm-block
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-yellow
+          span.glyphicon.glyphicon-thumbs-up
+        .info-box-content
+          span.info-box-text Em Análise
+          span.info-box-number
+            = @analise.size
+
+
+
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-red
+          span.glyphicon.glyphicon-thumbs-down
+        .info-box-content
+          span.info-box-text Cancelado
+          span.info-box-number
+            = @cancelado.size
+
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        span.info-box-icon.bg-green
+          span.glyphicon.glyphicon-briefcase
+        .info-box-content
+          span.info-box-text Concluído
+          span.info-box-number
+            = @concluido.size
+
+
+br
+
+.col-xs-12
+  .box.box-primary.box-solid
+    .box-header.with-border
+      h3.box-title
+        | Pesquisar
+      .box-tools.pull-right
+        button.btn.btn-box-tool data-widget="collapse" type="button"
+          i.fa.fa-minus
+    .box-body
+      .row
+        .col-sm-12
+          form accept-charset="UTF-8" action="/admin/contacts" method="get"
+            input name="utf8" type="hidden" value="✓"
+            .input-group.input-group-sm
+              input#search.form-control name="search"
+              / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+              span.input-group-btn
+                input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+
+
+.col-xs-12
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#todos" Todos
+      li
+        a data-toggle="tab" href="#aguardando"  Aguardando Atendimento
+      li
+        a data-toggle="tab" href="#em_atendimento"  Em Análise
+      li
+        a data-toggle="tab" href="#cancelado"  Cancelado
+      li
+        a data-toggle="tab" href="#concluido"  Concluído
+    .tab-content
+
+      / Todos
+      #todos.tab-pane.active
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Contato - Todos
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th E-mail
+                    th Telefone
+                    th Assunto
+                    / th Mensagem
+                    th Status
+                    th
+                tbody
+                  - @todos.each do |contact|
+                    tr
+                      td = contact.id
+                      td = contact.name
+                      td = contact.email
+                      td = contact.phone
+                      td = contact.subject
+                      / td = contact.messege
+                      td
+                        - if contact.status == "a"
+                          = " Aguardando"
+                        - elsif contact.status == "e"
+                          = " Em Análise"
+                        - elsif contact.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Concluído"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/contacts/#{contact.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/contacts/#{contact.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/contacts/#{contact.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir  '#{contact.name}'  ?"}
+              = will_paginate @todos, renderer: BootstrapPagination::Rails
+
+
+      / Aguardando Atendimento
+      #aguardando.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Contato - Aguardando Atendimento
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th E-mail
+                    th Telefone
+                    th Assunto
+                    / th Mensagem
+                    th Status
+                    th
+                tbody
+                  - @aguardando.each do |contact|
+                    tr
+                      td = contact.id
+                      td = contact.name
+                      td = contact.email
+                      td = contact.phone
+                      td = contact.subject
+                      / td = contact.messege
+                      td
+                        - if contact.status == "c"
+                          = " Concluído"
+                        - elsif contact.status == "e"
+                          = " Em Análise"
+                        - elsif contact.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Aguardando"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/contacts/#{contact.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/contacts/#{contact.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/contacts/#{contact.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir  '#{contact.name}'  ?"}
+              = will_paginate @aguardando, renderer: BootstrapPagination::Rails
+
+      / Em Atendimento
+      #em_atendimento.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Contato - Em Análise
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th E-mail
+                    th Telefone
+                    th Assunto
+                    / th Mensagem
+                    th Status
+                    th
+                tbody
+                  - @analise.each do |contact|
+                    tr
+                      td = contact.id
+                      td = contact.name
+                      td = contact.email
+                      td = contact.phone
+                      td = contact.subject
+                      / td = contact.messege
+                      td
+                        - if contact.status == "a"
+                          = " Aguardando"
+                        - elsif contact.status == "e"
+                          = " Em Análise"
+                        - elsif contact.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Concluído"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/contacts/#{contact.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/contacts/#{contact.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/contacts/#{contact.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir  '#{contact.name}'  ?"}
+              = will_paginate @analise, renderer: BootstrapPagination::Rails
+
+      / Cancelado
+      #cancelado.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Contato - Cancelado
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th E-mail
+                    th Telefone
+                    th Assunto
+                    / th Mensagem
+                    th Status
+                    th
+                tbody
+                  - @cancelado.each do |contact|
+                    tr
+                      td = contact.id
+                      td = contact.name
+                      td = contact.email
+                      td = contact.phone
+                      td = contact.subject
+                      / td = contact.messege
+                      td
+                        - if contact.status == "a"
+                          = " Aguardando"
+                        - elsif contact.status == "e"
+                          = " Em Análise"
+                        - elsif contact.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Concluído"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/contacts/#{contact.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/contacts/#{contact.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/contacts/#{contact.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir  '#{contact.name}'  ?"}
+              = will_paginate @cancelado, renderer: BootstrapPagination::Rails
+
+
+      / Concluído
+      #concluido.tab-pane
+        br
+          .box
+            .box-header
+              h3.box-title
+                | Contato - Concluído
+            .box-body
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th Código
+                    th Nome
+                    th E-mail
+                    th Telefone
+                    th Assunto
+                    / th Mensagem
+                    th Status
+                    th
+                tbody
+                  - @concluido.each do |contact|
+                    tr
+                      td = contact.id
+                      td = contact.name
+                      td = contact.email
+                      td = contact.phone
+                      td = contact.subject
+                      / td = contact.messege
+                      td
+                        - if contact.status == "a"
+                          = " Aguardando"
+                        - elsif contact.status == "e"
+                          = " Em Análise"
+                        - elsif contact.status == "c"
+                          = " Cancelado"
+                        - else
+                          = " Concluído"
+                      td
+                        a.btn.btn-default.fa.fa-search href="/admin/contacts/#{contact.id}"
+                        a.btn.btn-default.fa.fa-edit href="/admin/contacts/#{contact.id}/edit"
+                        a.btn.btn-default.fa.fa-times href="/admin/contacts/#{contact.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir  '#{contact.name}'  ?"}
+              = will_paginate @concluido, renderer: BootstrapPagination::Rails
+
+  a.btn.btn-primary href="/admin/contacts/new"  Novo Contato

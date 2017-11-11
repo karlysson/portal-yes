@@ -1,0 +1,34 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+
+section.content-header
+  h1
+    | Visualizar Usuários
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-user-plus
+        | Home
+    li
+      a href="/admin/users" Usuário
+
+br
+
+.col-xs-4
+  .box.box-primary
+    .box-body.box-profile
+    img.profile-user-img.img-responsive.img-circle alt=("User profile picture") src= @user.photo.url(:thumb) /
+    h3.profile-username.text-center = @user.name
+    p.text-muted.text-center = @user.permission.name
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b E-mail:
+        a = " #{@user.email}"
+    a.btn.btn-primary.btn-block href="/admin/users"
+      b Voltar
+

@@ -1,0 +1,39 @@
+<footer>
+    <div class="container text-center">
+        <div class="row text-left">
+            <div class="col-md-3">
+                <h3>Para você</h3>
+                <a href="#">Vagas de emprego</a>
+                <a href="#">Consultória em R.H.</a>
+                <a href="#">Agênica de Crédito</a>
+                <a href="#">Supletivo (EJA)</a>
+                <a href="#">Cursos e Treinamentos</a>
+            </div>
+            <div class="col-md-3">
+                <h3>Para a sua empresa</h3>
+                <a href="#">Busque por empregos</a>
+                <a href="#">Cadastre uma vaga de emprego</a>
+                <a href="#">Tenha consultoria em R.H.</a>
+                <a href="#">Agência de Crédito Empresarial</a>
+                <a href="/empresas">Procure por outras empresas</a>
+            </div>
+            <div class="col-md-3">
+                <h3>Um lugar para ir?</h3>
+                    <% @advertising_categories.each do |advertising_category| %>
+                        <a href="#"><%= advertising_category.name %></a>
+                    <% end %>
+
+            </div>
+            <div class="col-md-3">
+                <h3>O Portal</h3>
+                <a href="/quem-somos">Quem Somos</a>
+                <a href="/vagas">Vagas</a>
+                <a href="/planos">Planos</a>
+                <a href="/classificados">Classificados</a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        YES Profissional 2017
+    </div>
+</footer>

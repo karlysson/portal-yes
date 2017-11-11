@@ -1,0 +1,68 @@
+section.content-header
+  h1
+    | Usuários
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-user-plus
+        | Home
+    li
+      a href="/admin/users" Usuário
+
+br
+
+.col-xs-12
+  .box.box-primary.box-solid
+    .box-header.with-border
+      h3.box-title
+        | Pesquisar
+      .box-tools.pull-right
+        button.btn.btn-box-tool data-widget="collapse" type="button"
+          i.fa.fa-minus
+    .box-body
+        .col-xs-12
+          form accept-charset="UTF-8" action="/admin/users" method="get"
+            input name="utf8" type="hidden" value="✓"
+            .input-group.input-group-sm
+              input#search.form-control name="search"
+              / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+              span.input-group-btn
+                input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+
+
+.col-xs-12
+  .box.box-primary
+    .box-header
+      h3.box-title
+        | Usuários
+    .box-body
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th Código
+            th Nome
+            th Permissão
+            th E-mail
+            th Status
+            th
+        tbody
+          - @users.each do |user|
+            tr
+              td = user.id
+              td = user.name
+              td = user.permission.name
+              td = user.email
+              td
+                - if user.status == "a"
+                   = "Ativo"
+                - else
+                   = "Inativo"
+              td
+                a.btn.btn-default.fa.fa-search href="/admin/users/#{user.id}"
+                a.btn.btn-default.fa.fa-edit href="/admin/users/#{user.id}/edit"
+      = will_paginate @users, renderer: BootstrapPagination::Rails
+
+  a.btn.btn-primary href="/admin/users/new"  Novo Usuário
+

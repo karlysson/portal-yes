@@ -1,0 +1,57 @@
+section.content-header
+  h1
+    | Cidades
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-map
+        | Home
+    li
+      a href="/admin/cities" Cidades
+
+br
+.col-xs-12
+  .box.box-primary.box-solid
+    .box-header.with-border
+      h3.box-title
+        | Pesquisar
+      .box-tools.pull-right
+        button.btn.btn-box-tool data-widget="collapse" type="button"
+          i.fa.fa-minus
+    .box-body
+        .col-xs-12
+          form accept-charset="UTF-8" action="/admin/cities" method="get"
+            input name="utf8" type="hidden" value="✓"
+            .input-group.input-group-sm
+              input#search.form-control name="search"
+              / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+              span.input-group-btn
+                input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+.col-xs-12
+  .box.box-primary
+    .box-header
+      h3.box-title
+        | Cidades
+    .box-body
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th Código
+            th Nome
+            th Estado
+            th
+        tbody
+          - @cities.each do |city|
+            tr
+              td = city.id
+              td = city.name
+              td = city.state.sigla
+              td
+                a.btn.btn-default.fa.fa-search href="/admin/cities/#{city.id}"
+                a.btn.btn-default.fa.fa-edit href="/admin/cities/#{city.id}/edit"
+                a.btn.btn-default.fa.fa-times href="/admin/cities/#{city.id}" data-method="DELETE" data-disabled="true" data={ confirm: " Deseja realmente excluir #{city.name} ?"}
+      = will_paginate @cities, renderer: BootstrapPagination::Rails
+
+  a.btn.btn-primary href="/admin/cities/new"  Nova Cidade

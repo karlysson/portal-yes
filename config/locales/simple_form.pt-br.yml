@@ -1,0 +1,265 @@
+pt-BR:
+  #HELPES..........................
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
+
+      contact:
+        create: "Criar Contato"
+        update: "Atualizar Contato"
+
+      city:
+        create: "Criar Cidade"
+        update: "Atualizar Cidade"
+
+      banner:
+        create: "Criar Baner"
+        update: "Atualizar Baner"
+
+      state:
+        create: "Criar Estado"
+        update: "Atualizar Estado"
+
+      page:
+        create: "Criar Página"
+        update: "Atualizar Página"
+
+      job:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
+
+      curriculum:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
+
+      course:
+        create: "Criar Curso"
+        update: "Atualizar Curso"
+
+      course_category:
+        create: "Criar Categoria do Curso"
+        update: "Atualizar Categoria do Curso"
+
+      course_interation:
+        create: "Criar Curso de Integração"
+        update: "Atualizar Curso de Integração"
+
+      company:
+        create: "Criar  Empresa"
+        update: "Atualizar Empresa"
+
+      company_category:
+        create: "Criar Categoria de Empresa"
+        update: "Atualizar Categoria de Empresa"
+
+      company_category_relationship:
+        create: "Criar Categoria Relacional"
+        update: "Atualizar Categoria Relacional"
+
+      advertising:
+        create: "Criar Anúncio"
+        update: "Atualizar Anúncio"
+
+      advertising_category:
+        create: "Criar Categoria de Anúncio"
+        update: "Atualizar Categoria de Anúncio"
+
+      curriculum_office:
+        create: "Criar Cargo"
+        update: "Atualizar Cargo"
+
+      curriculum:
+        create: "Criar Currículo"
+        update: "Atualizar Currículo"
+
+      curriculum_category:
+        create: "Criar Categoria"
+        update: "Atualizar Categoria"
+
+      curriculum_profile:
+        create: "Criar Perfil"
+        update: "Atualizar Perfil"
+
+      reference:
+        create: "Criar Referência"
+        update: "Atualizar Referência"
+
+      indication:
+        create: "Criar Indicação"
+        update: "Atualizar Indicação"
+
+      user:
+        create: "Criar Usuário"
+        update: "Atualizar Usuário"
+
+
+
+  #ACTIVERECORD......................
+  activerecord:
+    models:
+        city: Cidade
+        contact: Contato
+        job: Vaga
+        curriculum: Curriculum
+
+
+  #SIMPLES FORM......................
+  simple_form:
+    yes: Sim
+    no: Não
+    required:
+      text: obrigatório
+      mark: "*"
+
+    error_notification:
+      default_message: "Por favor, corrija os problemas abaixo:"
+    blank: não pode ficar em branco
+
+    labels:
+      defaults:
+        password: Senha
+        name: Nome
+
+      contact:
+        email: E-mail
+        phone: Fone
+        subject: Assunto
+        messege: Mensagem
+
+      city:
+        name: Cidade
+        state: Estado
+
+      banner:
+        name: Nome
+
+      course:
+        user: Usuário
+        course_category: Categoria do Curso
+        workload: Carga Horária
+
+      course_category:
+        name: Nome
+
+      course_interation:
+        course: Curso
+        user: Usuário
+        page: Página
+        page_id: Código da Página
+        others: Outros
+
+      company:
+        title: Título
+        phone: Telefone
+        email: E-mail
+        address: Endereço
+        city: Cidade
+        zip_code: CEP
+        md_facebook: Facebook
+        md_google: Google
+        md_twitter: md_twitter
+        initial_care: Aberto
+        end_care: Intervalo
+        initial_interval: Retorno
+        end_range: Fechado
+
+      company_category:
+        name: Nome
+
+      company_category_relationship:
+        company: Empresa
+        company_category: Categoria da Empresa
+
+      advertising:
+        cover: Tampa
+        name: Nome
+        description: Descrição
+        advertising_category: Categoria de Anúncios
+        company: Empresa
+
+
+      user:
+        permission: Permissão
+        email: E-mail
+        password_confirmation: Senha de Confirmação
+
+      page:
+        name: Nome
+        title: Título
+        summary: Resumo
+        description: Descrição
+
+      job:
+        name: Título
+        company: Empresa
+        curriculum_profile: Perfil
+        curriculum_office: Cargo
+        number: Qt. de Vagas
+        city: Cidade
+        cnh: CNH
+        description: Descrição
+        benefit: Benefícios
+
+      curriculum_office:
+        name: Nome
+        curriculum_category: Categoria
+
+      curriculum_category:
+        name: Nome
+
+      reference:
+        name: Nome
+        phone: Telefone
+        user: Usuário
+
+      indication:
+        name: Nome
+        user: Usuário
+        page: Página
+        page_id: Código da Página
+        phone: Telefone
+        cell: Celular
+        email: E-mail
+        profession: Profissão
+        obs: obs
+
+      curriculum:
+        curriculum: Currículo
+        name: Name
+        birth: Data de Nascimento
+        marital_status: Estado Civil
+        identity: Identidade
+        cpf: CPF
+        elector_title: Título de Eleitor
+        inscription: Nº de Inscrição
+        zone: Zona
+        section: Seção
+        cnh: CNH
+        professional_experience: Experiência Prossional
+        professional_preference: Prefêrencia Prossional
+        email: E-mail
+        address: Endereço
+        street: Av/Rua
+        block: Quadra
+        lot: Lote
+        sector: Setor
+        city_id: Cidade
+        city: Cidade
+        zip_code: Cep
+        phone: Fone
+        cell_phone: Celular
+        message: Recado
+        study: Estuda atualmente
+        teaching: Ensino
+        period: Periodo
+        courses: Curso
+        employee: Empregado
+        salary: Salário
+        father: Pai
+        profession_father: Profissão
+        mother: Mãe
+        profession_mother: Profissão
+        curriculum_office: Selecione Cargo Desejado.
+
+

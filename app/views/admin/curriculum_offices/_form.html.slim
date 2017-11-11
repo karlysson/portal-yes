@@ -1,0 +1,15 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Cargo
+      .box-body
+       = simple_form_for([:admin, @curriculum_office]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.association :curriculum_category
+          = f.input :name
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/curriculum_offices"  Voltar

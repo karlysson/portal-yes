@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="/site/css/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <%=  favicon_link_tag 'yes.ico' %>
+
+        <%= csrf_meta_tags %>
+        <%= favicon_link_tag 'yes.ico' %>
+
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+        <title>YES</title>
+    </head>
+    <body>
+        <%= render 'layouts/site/navbar' %>
+        <%= render 'layouts/site/navbar_top' %>
+        <%= yield %>
+        <%= render 'layouts/site/footer' %>
+    </body>
+</html>

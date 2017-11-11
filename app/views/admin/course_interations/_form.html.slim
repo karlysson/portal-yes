@@ -1,0 +1,19 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Curso de Integração
+      .box-body
+       = simple_form_for([:admin, @course_interation]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.association :course
+          = f.association :user
+          = f.input :page
+          = f.input :page_id
+          = f.input :others
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/course_interations"  Voltar
+

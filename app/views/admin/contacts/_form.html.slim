@@ -1,0 +1,20 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Contato
+      .box-body
+       = simple_form_for([:admin, @contact]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.label "Status"
+          = f.select(:status,[['Aguardando', 'a'], ['Em Análise', 'e'],['Cancelado', 'c'],['Concluído','u']],{},input_html: {value: 'h'}, :class => 'form-control')
+          = f.input :name
+          = f.input :email
+          = f.input :phone
+          = f.input :subject
+          = f.input :message
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/contacts"  Voltar

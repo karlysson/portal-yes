@@ -1,0 +1,117 @@
+section.content-header
+  h1
+    | Curriculum
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="#"
+        i.fa.fa-contao
+        | Home
+    li.active Curriculum
+
+
+
+
+
+section.content
+  .row
+    .col-md-12
+      .nav-tabs-custom
+        ul.nav.nav-tabs
+          li.active
+            a data-toggle="tab" href="#tab_1"  Aguardando Aprovação
+          li
+            a data-toggle="tab" href="#tab_2"  Aprovado
+          li
+            a data-toggle="tab" href="#tab_3"  Empregado
+        .tab-content
+          #tab_1.tab-pane.active
+              h5.text-center.red AGUARDANDO ATENDIMENTO
+              .box.box-primary.box-solid
+                .box-header.with-border
+                  h3.box-title
+                    | Pesquisar
+                  .box-tools.pull-right
+                    button.btn.btn-box-tool data-widget="collapse" type="button"
+                      i.fa.fa-minus
+                .box-body
+                  .row
+                    .col-sm-12
+                      form accept-charset="UTF-8" action="/clients" method="get"
+                        input name="utf8" type="hidden" value="✓"
+                        .input-group.input-group-sm
+                          input#search.form-control
+                          / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+                          span.input-group-btn
+                            input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!"
+
+              .box
+                .box-header
+                  h3.box-title
+                    | Curriculum
+                .box-body
+                  table.table.table-bordered.table-striped
+                    thead
+                      tr
+                        th Id
+                        th Cargo
+                        th Nome
+                        th Fone
+                        th Celular
+                        th E-mail
+                        th
+                    tbody
+                      - @curriculums.each do |curriculum|
+                        tr
+                          td = curriculum.id
+                          td = curriculum
+                          td = curriculum.name
+                          td = curriculum.phone
+                          td = curriculum.cell_phone
+                          td = curriculum.email
+                          td
+                            a.btn.btn-default.fa.fa-search href="/admin/curriculums/#{curriculum.id}"
+                            a.btn.btn-default.fa.fa-edit href="/admin/curriculums/#{curriculum.id}/edit"
+              a.btn.btn-primary href="/admin/curriculums/new"  Novo Curriculum
+
+
+
+          #tab_2.tab-pane
+              .box.box-success.box-solid
+                .box-header.with-border
+                  h3.box-title
+                    | Pesquisar.
+                  .box-tools.pull-right
+                    button.btn.btn-box-tool data-widget="collapse" type="button"
+                      i.fa.fa-minus
+                .box-body
+                  .row
+                    .col-sm-12
+                      form accept-charset="UTF-8" action="/clients" method="get"
+                        input name="utf8" type="hidden" value="✓" /
+                        .input-group.input-group-sm
+                          input#search.form-control
+                          / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+                          span.input-group-btn
+                            input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!" /
+          #tab_3.tab-pane
+              .box.box-success.box-solid
+                .box-header.with-border
+                  h3.box-title
+                    | Pesquisar.
+                  .box-tools.pull-right
+                    button.btn.btn-box-tool data-widget="collapse" type="button"
+                      i.fa.fa-minus
+                .box-body
+                  .row
+                    .col-sm-12
+                      form accept-charset="UTF-8" action="/clients" method="get"
+                        input name="utf8" type="hidden" value="✓" /
+                        .input-group.input-group-sm
+                          input#search.form-control
+                          / input#search.form-control :name=>"search" :placeholder=>"Nome do Cliente, CPF, CNPJ ou Telefone"
+                          span.input-group-btn
+                            input.btn.btn-primary.btn-lg name="commit" type="submit" value="Pesquisar!" /
+
+
+

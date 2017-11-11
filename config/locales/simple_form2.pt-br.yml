@@ -1,0 +1,41 @@
+pt-BR:
+  #HELPES..........................
+  helpers:
+    submit:
+      create: "Créer %{model}"
+      update: "Modifier %{model}"
+        
+      city:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
+
+  #ACTIVERECORD...................... 
+  activerecord:
+    models:
+        city: Cidade
+
+  #SIMPLES FORM...................... 
+  simple_form:
+    yes: Sim
+    no: Não
+    required:
+      text: obrigatório
+      mark: "*"
+
+    error_notification:
+      default_message: "Por favor, corrija os problemas abaixo:"
+    blank: não pode ficar em branco
+
+    labels:
+      defaults:
+        password: Senha
+        name: Nome
+
+      city:
+        name: Cidade
+        state: Estado
+
+      user:
+        permission: Permissão
+        email: E-mail
+        password_confirmation: Senha de Confirmação

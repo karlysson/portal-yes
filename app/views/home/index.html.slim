@@ -1,0 +1,87 @@
+header
+  = render 'home/banner'
+
+= render 'home/services'
+.ads
+  .container
+    .head
+      span.title
+        span style=("color: #009bcf;")  Por
+        = " Goiânia" 
+      a href="#" 
+        i.glyphicon.glyphicon-triangle-bottom
+        | alterar cidade
+    .filters.col-md-12.text-center
+      ul.nav.nav-pills.center-pills
+        - @advertising_categories.each do |advertising_category|
+          li role="presentation" 
+            a href="#" = advertising_category.name 
+        end
+    .row
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/h1.png" /
+        .ad-title Hotel Carioca
+        .ad-subtitle Setor Bueno, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/jap.png" /
+        .ad-title Comida Japonesa
+        .ad-subtitle Setor Central, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/pam.png" /
+        .ad-title Pamonharia Urbana
+        .ad-subtitle Alameda dos Buritis, Goiânia/GO
+    .row
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/h1.png" /
+        .ad-title Hotel Carioca
+        .ad-subtitle Setor Bueno, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/jap.png" /
+        .ad-title Comida Japonesa
+        .ad-subtitle Setor Central, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/pam.png" /
+        .ad-title Pamonharia Urbana
+        .ad-subtitle Alameda dos Buritis, Goiânia/GO
+    .row
+      .col-md-12
+        a href="/eja"
+          img.img-responsive alt="" src="/site/images/img/eja.png" /
+    .row
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/h1.png" /
+        .ad-title Hotel Carioca
+        .ad-subtitle Setor Bueno, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/jap.png" /
+        .ad-title Comida Japonesa
+        .ad-subtitle Setor Central, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/pam.png" /
+        .ad-title Pamonharia Urbana
+        .ad-subtitle Alameda dos Buritis, Goiânia/GO
+    .row
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/h1.png" /
+        .ad-title Hotel Carioca
+        .ad-subtitle Setor Bueno, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/jap.png" /
+        .ad-title Comida Japonesa
+        .ad-subtitle Setor Central, Goiânia/GO
+      .col-md-4
+        a href="#" 
+          img.img-responsive src="/site/images/img/pam.png" /
+        .ad-title Pamonharia Urbana
+        .ad-subtitle Alameda dos Buritis, Goiânia/GO

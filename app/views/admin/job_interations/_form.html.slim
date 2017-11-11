@@ -1,0 +1,17 @@
+/ .col-xs-12
+/   .box.box-primary
+/     .box-header.with-border
+/       h3.box-title Cidades
+/       .box-body
+/        = simple_form_for([:admin, @job_interation]) do |f|
+/         = f.error_notification
+
+/         .form-inputs
+/           = f.input :page
+/           = f.input :page_id
+/           = f.association :job
+/           = f.association :course
+/         .form-actions
+/           = f.button :submit, :class => "btn  btn-success"
+
+/   a.btn.btn-primary href="/admin/job_interations"  Voltar

@@ -1,0 +1,88 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Anúncio
+      .box-body
+       = simple_form_for([:admin, @advertising]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = image_tag @advertising.cover.url(:thumb)
+          = f.input :cover, as: :file
+          = f.input :name
+          = f.association :advertising_category
+          = f.association :company
+          = f.label "Usar os mesmos dados da empresa"
+          = f.select(:choice,[['Sim','s'],['Não','n']],{},input_html: {value: 'n'}, :class => 'form-control', :id => 'opcoes')
+          br
+          = f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
+
+          javascript:
+            var opcao;
+            $("#opcoes").change(function(event) {
+              $('resultado').html($('#opcoes').val());
+              // if ($('#opcoes').val() == 'n') {
+              //    // $("#myModalBudgetStatus").modal('show');;
+              // }
+              if ($('#opcoes').val() == 'n'){
+                  $("#resultado").show();
+              }
+
+              if ($('#opcoes').val() == 's'){
+                  $("#resultado").hide();
+              }
+
+            });
+          - if @advertising.choice == "n"
+            javascript:
+              $("#resultado").show();
+          #resultado  style="display: none;"
+            = f.input :address
+            = f.input :phone
+            = f.input :email
+            = f.input :site
+            = f.input :facebook
+            = f.input :instagram
+            = f.input :twitter
+            = f.input :google
+
+          / #myModalBudgetStatus.modal.fade role="dialog"
+          /   .modal-dialog
+          /     .modal-content
+          /       .modal-header
+          /         button.close data-dismiss="modal" type="button"
+          /         h4.modal-title OBS:: Serviços - Multa
+          /       .modal-body.text-center
+          /         h3 style="color:#D40005" VOCÊ NÃO CADASTROU O NÚMERO DA INFRAÇÃO!
+          /         p Exclua o serviço e cadastre novamente adicionando o número da infração.
+
+          /         .modal-footer
+          /           button.btn.btn-danger data-dismiss="modal" type="button"  Fechar
+        h4 Fotos
+        p
+        = f.fields_for :assets do |asset_fields|
+          - if asset_fields.object.new_record?
+            p
+              = asset_fields.file_field :image
+          end
+
+        = f.fields_for :assets do |asset_fields|
+          - unless asset_fields.object.new_record?
+            .row
+              .col-md-12
+                    .table-responsive
+                      table.table.table-striped.table-bordered
+                        thead
+                          td style=("width: 50%; background-color: Silver;")
+                          td style=("width: 50%; background-color: Silver;")
+                        tbody
+                              tr
+                                td = link_to image_tag(asset_fields.object.image.url(:thumb)), asset_fields.object.image.url(:original)
+                                td
+                                  = asset_fields.check_box :_destroy
+                                  = " Excluir"
+
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/advertisings"  Voltar

@@ -1,0 +1,15 @@
+.col-xs-12
+  .box.box-primary
+    .box-header.with-border
+      h3.box-title Cidades
+      .box-body
+       = simple_form_for([:admin, @city]) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :name
+          = f.association :state
+        .form-actions
+          = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/cities"  Voltar

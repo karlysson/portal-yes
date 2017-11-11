@@ -1,0 +1,202 @@
+- if current_user.permission.prefix == "a"
+  aside.main-sidebar
+    section.sidebar
+      .user-panel
+        .pull-left.image
+          img.img-circle alt=("User Image") src="#{current_user.photo.url(:thumb)}"
+        .pull-left.info
+          p = current_user.name
+          a href="/admin"
+            i.fa.fa-circle.text-success
+            = current_user.permission.name
+
+      form.sidebar-form action="#" method="get"
+        .input-group
+          input.form-control name="q" placeholder="Search..." type="text"
+          span.input-group-btn
+            button#search-btn.btn.btn-flat name="search" type="submit"
+              i.fa.fa-search
+
+      ul.sidebar-menu
+        li.header MENU
+
+
+        li
+          a href="/admin"
+            i.fa.fa-circle-o.text-aqua
+            span HOME
+
+        li
+          a href="/admin/banners" onclick="refresh();"
+            i.fa.fa-television
+            span Baner
+        li
+          a href="/admin/contacts" onclick="refresh();"
+            i.fa.fa-male
+            span Contatos
+
+
+        /Vagas
+        li
+          a href="/admin/jobs"
+            i.fa.fa-vimeo-square
+            span Vagas
+
+        /Pages
+        li
+          a href="/admin/pages"
+            i.fa.fa-file
+            span Páginas
+
+
+        / li.treeview
+        /   a href="#"
+        /     i.fa.fa-buysellads
+        /     span Vagas
+        /     i.fa.fa-angle-left.pull-right
+        /   ul.treeview-menu
+        /     li.active
+        /       a href="/admin/jobs"
+        /         i.fa.fa-circle-o
+        /         | Anúncio
+        /     / li
+        /     /   a href="/admin/job_interations"
+        /     /     i.fa.fa-circle-o
+        /     /     | Interação
+
+        /Curriculum
+        li.treeview
+          a href="#"
+            i.fa.fa-contao
+            span Currículos
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li.active
+              a href="/admin/curriculums"
+                i.fa.fa-circle-o
+                | Currículo
+            li
+              a href="/admin/curriculum_offices"
+                i.fa.fa-circle-o
+                | Cargo
+            li
+              a href="/admin/curriculum_categories"
+                i.fa.fa-circle-o
+                | Categoria
+            li
+              a href="/admin/curriculum_profiles"
+                i.fa.fa-circle-o
+                | Perfil
+            li
+              a href="/admin/references"
+                i.fa.fa-circle-o
+                | Referência
+            li
+              a href="/admin/indications"
+                i.fa.fa-circle-o
+                | Indicação
+
+
+        /Anúncio
+        li.treeview
+          a href="#"
+            i.fa.fa-adn
+            span Anúncios
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li.active
+              a href="/admin/advertisings"
+                i.fa.fa-circle-o
+                | Anúncio
+            li
+              a href="/admin/advertising_categories"
+                i.fa.fa-circle-o
+                | Categoria
+
+        /Company
+        li.treeview
+          a href="#"
+            i.fa.fa-institution
+            span Empresas
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li.active
+              a href="/admin/companies"
+                i.fa.fa-circle-o
+                | Empresa
+            li
+              a href="/admin/company_categories"
+                i.fa.fa-circle-o
+                | Categoria
+            li
+              a href="/admin/company_category_relationships"
+                i.fa.fa-circle-o
+                | Categoria Relacional
+
+        /Curso
+        li.treeview
+          a href="#"
+            i.fa.fa-book
+            span Cursos
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li.active
+              a href="/admin/courses"
+                i.fa.fa-circle-o
+                | Curso
+            li
+              a href="/admin/course_categories"
+                i.fa.fa-circle-o
+                | Categoria
+            li
+              a href="/admin/course_interations"
+                i.fa.fa-circle-o
+                | Interação
+
+        /Cidade
+        li.treeview
+          a href="#"
+            i.fa.fa-map
+            span Cidades
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li.active
+              a href="/admin/cities"
+                i.fa.fa-circle-o
+                | Cidades
+            li
+              a href="/admin/states"
+                i.fa.fa-circle-o
+                | Estados
+
+
+        /Usuários
+        li.treeview
+          a href="#"
+            i.fa.fa-user-plus
+            span Usuários
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li
+              a href="/admin/users"
+                i.fa.fa-circle-o
+                | Usuário
+              /ADMIN
+              li
+                a href="/admin/permissions"
+                  i.fa.fa-circle-o
+                  | Permissão
+
+        /DER
+        li.treeview
+          a href="#"
+            i.fa.fa-database
+            span DER
+            i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li
+              a href="/admin/diagrams"
+                i.fa.fa-circle-o
+                | DER
+
+

@@ -1,0 +1,103 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+section.content-header
+  h1
+    | Visualizar Vaga
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-vimeo-square
+        | Home
+    li
+     a href="/admin/jobs" Vagas
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Vaga
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Name:
+        a = " #{@job.name}"
+      li.list-group-item
+        b Empresa:
+        a = " #{@job.company.name}"
+      li.list-group-item
+        b Status:
+        a
+          - if @job.status == "c"
+            = " Concluído"
+          - elsif @job.status == "e"
+            = " Em atendimento"
+          - elsif @job.status == "c"
+            = " Cancelado"
+          - else
+            = " Aguardando"
+      li.list-group-item
+        b Curriculum profile:
+        a = " #{@job.curriculum_profile.name}"
+      li.list-group-item
+        b Curriculum office:
+        a = " #{@job.curriculum_office.name}"
+      li.list-group-item
+        b Numero:
+        a = " #{@job.number}"
+      li.list-group-item
+        b Localização:
+        a = " #{@job.city.name}"
+      li.list-group-item
+        b Ensino:
+        a
+          - if @job.teaching == "f-i"
+            = " Fundamental Incompleto"
+          - elsif @job.teaching == "f-c"
+            = " Fundamental Completo"
+          - elsif @job.teaching == "m-i"
+            = " Médio Incompleto"
+          - elsif @job.teaching == "m-c"
+            = " Médio Completo"
+          - elsif @job.teaching == "s-i"
+            = " Superior Incompleto"
+          - else @job.teaching == "s-c"
+            = " Superior Completo"
+      li.list-group-item
+        b CNH:
+        a = " #{@job.cnh}"
+      li.list-group-item
+        b Viagem:
+        a
+          - if @job.travel == "s"
+            = " Sim"
+          - else
+            = " Não"
+      li.list-group-item
+        b Disponibilidade de horário:
+        a
+          - if @job.availability == "i"
+            = " Integral"
+          - elsif @job.availability == "m"
+            = " Manhã"
+          - else
+            = "Noite "
+      li.list-group-item
+        b Visível:
+        a
+          - if @job.visible == "s"
+            = " Sim"
+          - else
+            = " Não"
+      li.list-group-item
+        b Descrição:
+        a = raw " #{@job.description}"
+      li.list-group-item
+        b Benefício:
+        a = " #{@job.benefit}"
+  a.btn.btn-primary href="/admin/jobs"
+      b Voltar

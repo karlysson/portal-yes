@@ -1,0 +1,46 @@
+.container
+	- @pages.each do |page|
+	  h3 = page.title
+	  = raw page.description
+
+	br
+
+
+css:
+	.classif {
+	    position: absolute;
+	    left: 15px;
+	    top: 10px;
+	    /*width: 215px;*/
+	    width: 215px;
+	    padding: 5px 0px;
+	    text-transform: uppercase;
+	    color: #FFFFFF;
+	    text-align: center;
+	    opacity: 0.9;
+	}
+.container
+  .row
+  	- @advertisings.each do |advertising|
+	    .col-md-3
+	      .thumbnail
+	      	span class="classif" style="background-color: #{advertising.advertising_category.color}; color: #{advertising.advertising_category.font}" = advertising.advertising_category.name
+	      	a href="/anuncio/#{advertising.id}"
+	        	img.img-responsive.img_advertising alt="#{advertising.name}" src="#{advertising.cover.url(:medium)}" 
+	        .caption
+	          / h4.pull-right = advertising.phone
+	          h4.text-center
+	            a href="#"  = advertising.name
+	          = raw advertising.description
+	        .ratings.caption
+	          p
+	            span.glyphicon.glyphicon-star style="color:#22ff0c;"
+	            span.glyphicon.glyphicon-star style="color:#22ff0c;"
+	            span.glyphicon.glyphicon-star style="color:#22ff0c;"
+	            span.glyphicon.glyphicon-star style="color:#22ff0c;"
+	            span.glyphicon.glyphicon-star style="color:#22ff0c;"
+	            = " (15 Avaliações)"
+	        .space-ten
+	        .btn-ground.text-center
+				= link_to "DETALHES", "/anuncio/#{advertising.id}", :class=>"btn btn-primary btn-xs"
+	          

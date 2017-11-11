@@ -1,0 +1,23 @@
+section.content-header
+  h1
+    | Diagrama de Entidade Relacionamento
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-database
+        | Home
+    li.active DER
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-header
+      h3.box-title
+        | Diagrama de ER
+    .box-body
+      table.table.table-bordered.table-striped
+        embed height="660px" src="/diagram.pdf" type="application/pdf" width="100%"
+
+  a.btn.btn-primary href="/admin"  Voltar

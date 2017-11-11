@@ -1,0 +1,122 @@
+br
+.col-xs-12
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#dados"  Dados
+      li
+        a data-toggle="tab" href="#endereco"  Endereço
+      li
+        a data-toggle="tab" href="#redes_sociais"  Redes Sociais
+      li
+        a data-toggle="tab" href="#outros"  Outros
+      li
+        a data-toggle="tab" href="#imagens"  Imagens
+    = simple_form_for([:admin, @company]) do |f|
+      = f.error_notification
+      .tab-content
+          / Dados
+          #dados.tab-pane.active
+                  h3.box-title Dados da Empresa
+                  .box-body
+
+                    .form-inputs
+                      = image_tag @company.logo.url(:thumb)
+                      = f.input :logo, as: :file
+                      .box-body
+                        .row
+                          .col-md-6
+                            .form-group
+                              = f.input :name
+                            .form-group
+                              = f.input :title
+                          .col-md-6
+                            .form-group
+                              = f.input :phone
+                            .form-group
+                              = f.input :email
+          / Endereço
+          #endereco.tab-pane
+                h3.box-title Endereço
+                .box-body
+                  .form-inputs
+                    .box-body
+                      .row
+                        .col-md-6
+                          .form-group
+                            = f.input :address
+                          .form-group
+                            = f.input :latitude
+                          .form-group
+                            = f.input :zip_code
+                        .col-md-6
+                          .form-group
+                            = f.input :longitude
+                          .form-group
+                            = f.association :city
+
+          / Redes Sociais
+          #redes_sociais.tab-pane
+                h3.box-title Redes Sociais
+                .box-body
+                  .form-inputs
+                    .box-body
+                      .row
+                        .col-md-6
+                          .form-group
+                            = f.input :md_facebook
+                          .form-group
+                            = f.input :md_google
+                          .form-group
+                            = f.input :md_twitter
+
+          / Outros
+          #outros.tab-pane
+                h3.box-title Outros
+                .box-body
+                  .form-inputs
+                    .box-body
+                      .row
+                        .col-md-6
+                          .form-group
+                            = f.input :initial_care
+                          .form-group
+                            = f.input :end_care
+                        .col-md-6
+                          .form-group
+                            = f.input :initial_interval
+                          .form-group
+                            = f.input :end_range
+          / Imagens
+          #imagens.tab-pane
+                h3.box-title Galeria de Imagens
+                .box-body
+                  = f.fields_for :assets do |asset_fields|
+                    - if asset_fields.object.new_record?
+                      p
+                        = asset_fields.file_field :image
+                    end
+
+                h3.box-title Produto Imagens
+                .box-body
+                  = f.fields_for :assets do |asset_fields|
+                    - unless asset_fields.object.new_record?
+                       .row
+                         .col-md-12
+                              .table-responsive
+                                table.table.table-striped.table-bordered
+                                  thead
+                                    td style=("width: 50%; background-color: Silver;")
+                                    td style=("width: 50%; background-color: Silver;")
+                                  tbody
+                                        tr
+                                          td = link_to image_tag(asset_fields.object.image.url(:thumb)), asset_fields.object.image.url(:original)
+                                          td
+                                            = asset_fields.check_box :_destroy
+                                            = " Excluir"
+                = f.input :obs, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
+
+                .form-actions
+                   = f.button :submit, :class => "btn  btn-success"
+
+  a.btn.btn-primary href="/admin/companies"  Voltar

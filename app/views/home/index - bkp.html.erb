@@ -1,0 +1,204 @@
+<header>
+    <%= render 'home/banner' %>
+</header>
+
+        
+ <div class="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner1.jpg'); background-size:100%">
+                            <span class="title">Vagas de Emprego</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Ver vagas</a></li>
+                            <li><a href="#">Cadastrar currículo</a></li>
+                            <li><a href="#">Anunciar vaga</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner4.jpg'); background-size:100%">
+                            <span class="title">Estágio</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Ver vagas</a></li>
+                            <li><a href="#">Cadastre-se</a></li>
+                            <li><a href="#">Cadastre sua empresa</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner4.jpg'); background-size:100%">
+                            <span class="title">Consultória R.H.</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Para você</a></li>
+                            <li><a href="#">Para empresas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner1.jpg'); background-size:100%">
+                            <span class="title">Agência Digital</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Criação de Sites</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner4.jpg'); background-size:100%">
+                            <span class="title">Vagas de Emprego</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Ver vagas</a></li>
+                            <li><a href="#">Cadastrar currículo</a></li>
+                            <li><a href="#">Anunciar vaga</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner4.jpg'); background-size:100%">
+                            <span class="title">Estágio</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Ver vagas</a></li>
+                            <li><a href="#">Cadastre-se</a></li>
+                            <li><a href="#">Cadastre sua empresa</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner4.jpg'); background-size:100%">
+                            <span class="title">Consultória R.H.2</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Para você</a></li>
+                            <li><a href="#">Para empresas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content backg" style="background-image: url('/site/images/img/banner1.jpg')">
+                            <span class="title">Agência Digital</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Criação de Sites</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ads">
+            <div class="container">
+                <div class="head">
+                    <span class="title">
+                        <span style="color: #009bcf;">Por</span> Goiânia
+                    </span>
+                    <a href="#"><i class="glyphicon glyphicon-triangle-bottom"></i> alterar cidade</a>
+                </div>
+                <div class="filters col-md-12 text-center">
+                    <ul class="nav nav-pills center-pills">
+						<% @advertising_categories.each do |advertising_category| %>
+	                        <li role="presentation"><a href="#"><%= advertising_category.name %></a></li>
+						<% end %>
+
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/h1.png">
+
+                            <div class="ad-title">Hotel Carioca</div>
+                            <div class="ad-subtitle">Setor Bueno, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/jap.png">
+                            <div class="ad-title">Comida Japonesa</div>
+                            <div class="ad-subtitle">Setor Central, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/pam.png">
+                            <div class="ad-title">Pamonharia Urbana</div>
+                            <div class="ad-subtitle">Alameda dos Buritis, Goiânia/GO</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/h1.png">
+
+                            <div class="ad-title">Hotel Carioca</div>
+                            <div class="ad-subtitle">Setor Bueno, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/jap.png">
+                            <div class="ad-title">Comida Japonesa</div>
+                            <div class="ad-subtitle">Setor Central, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/pam.png">
+                            <div class="ad-title">Pamonharia Urbana</div>
+                            <div class="ad-subtitle">Alameda dos Buritis, Goiânia/GO</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="img-responsive" src="/site/images/img/eja.png" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/h1.png">
+                            <div class="ad-title">Hotel Carioca</div>
+                            <div class="ad-subtitle">Setor Bueno, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/jap.png">
+                            <div class="ad-title">Comida Japonesa</div>
+                            <div class="ad-subtitle">Setor Central, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/pam.png">
+                            <div class="ad-title">Pamonharia Urbana</div>
+                            <div class="ad-subtitle">Alameda dos Buritis, Goiânia/GO</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/h1.png">
+                            <div class="ad-title">Hotel Carioca</div>
+                            <div class="ad-subtitle">Setor Bueno, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/jap.png">
+                            <div class="ad-title">Comida Japonesa</div>
+                            <div class="ad-subtitle">Setor Central, Goiânia/GO</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img class="img-responsive" src="/site/images/img/pam.png">
+                            <div class="ad-title">Pamonharia Urbana</div>
+                            <div class="ad-subtitle">Alameda dos Buritis, Goiânia/GO</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,313 @@
+br
+.col-xs-12
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#pessoais"  Dados  Pessoais
+      li
+        a data-toggle="tab" href="#endereco"  Endereço
+      li
+        a data-toggle="tab" href="#contato"  Contato
+      li
+        a data-toggle="tab" href="#profissionais"  Dados Profissionais
+      li
+        a data-toggle="tab" href="#academico"  Dados Acadêmico
+      li
+        a data-toggle="tab" href="#familiares"  Dados Familiares
+      li
+        a data-toggle="tab" href="#outros"  Outros
+    .tab-content
+      / Dados
+      #pessoais.tab-pane.active
+              h3.box-title Dados  Pessoais
+              .box-body
+              = simple_form_for([:admin, @curriculum]) do |f|
+                = f.error_notification
+
+                .form-inputs
+                  .box-body
+                    .row
+                      .col-md-4
+                        .form-group
+                          = f.input :name
+                        .form-group
+                          = f.input :elector_title
+                        .form-group
+                          = f.input :section
+                        .form-group
+                          = f.label "Data Nascimento"
+                          = f.input :birth, label: false, start_year: 1920, input_html: {class: 'select2 form-control'}
+                      .col-md-4
+                        .form-group
+                          = f.input :identity
+                        .form-group
+                          = f.label "Estado Civil"
+                          = f.select(:marital_status,[['Solteiro(a)','s'],['Casado(a)','c'],['Viúvo(a)','v']],{},input_html: {value: 'S'}, :class => 'form-control')
+                        .form-group
+                          = f.input :inscription
+                      .col-md-4
+                        .form-group
+                          = f.input :cpf
+                        .form-group
+                          = f.label "CNH"
+                          = f.select(:cnh,[['Não','n'],['A','a'],['B','b'],['AB','ab'],['C','c'],['D','d'],['E','e'],['ACC','acc']],{},input_html: {value: 'S'}, :class => 'form-control')
+                        .form-group
+                          = f.input :zone
+      / Endereço
+      #endereco.tab-pane
+            h3.box-title Endereço
+            .box-body
+             = simple_form_for([:admin, @curriculum]) do |f|
+              = f.error_notification
+
+              .form-inputs
+                .box-body
+                  .row
+                    .col-md-6
+                      .form-group
+                        = f.input :street
+                      .form-group
+                        = f.input :lot
+                      .form-group
+                        = f.input :address
+                      .form-group
+                        = f.input :zip_code
+                    .col-md-6
+                      .form-group
+                        = f.input :block
+                      .form-group
+                        = f.input :sector
+                      .form-group
+                        = f.association :city
+
+      / Contato
+      #contato.tab-pane
+            h3.box-title Contato
+            .box-body
+             = simple_form_for([:admin, @curriculum]) do |f|
+              = f.error_notification
+
+              .form-inputs
+                .box-body
+                  .row
+                    .col-md-6
+                      .form-group
+                        = f.input :email
+                      .form-group
+                        = f.input :phone
+                    .col-md-6
+                      .form-group
+                        = f.input :cell_phone
+                      .form-group
+                        = f.input :message
+
+      / Dados Profissionais
+      #profissionais.tab-pane
+            h3.box-title Dados Profissionais
+            .box-body
+             = simple_form_for([:admin, @curriculum]) do |f|
+              = f.error_notification
+
+              .form-inputs
+                .box-body
+                  .row
+                    .col-md-6
+                      .form-group
+                        = f.input :professional_preference
+                      .form-group
+                        = f.label 'Disponibilidade para viajar'
+                        = f.select(:travel,[['Não','n'],['Sim','s']],{},input_html: {value: 'n'}, :class => 'form-control')
+                      .form-group
+                        = f.label "Empregado"
+                        = f.select(:employee,[['Sim','s'],['Não','n']],{},input_html: {value: 'N'}, :class => 'form-control')
+                    .col-md-6
+                      .form-group
+                        = f.input :professional_experience
+                      .form-group
+                        = f.label 'Disponibilidade horário'
+                        = f.select(:availability,[['Integral','i'],['Manhã','m'],['Tarde','t'],['Noite','n']],{},input_html: {value: 'n'}, :class => 'form-control')
+                      .form-group
+                        = f.input :salary
+
+      / Dados Academico
+      #academico.tab-pane
+            h3.box-title Dados Acadêmico
+            .box-body
+             = simple_form_for([:admin, @curriculum]) do |f|
+              = f.error_notification
+
+
+              .form-inputs
+                .box-body
+                  .row
+                    .col-md-6
+                      .form-group
+                        = f.label 'Ensino'
+                        = f.select(:teaching,[['Fundamental Incompleto','f-i'],['Fundamental Completo','f-c'],['Médio Incompleto','m-i'],['Médio Completo','m-c'],['Superior Incompleto','s-i'],['Superior Completo','s-c']],{},input_html: {value: 'f-i'}, :class => 'form-control')
+                      .form-group
+                        = f.label 'Período'
+                        = f.select(:period,[['Integral','i'],['Matutino','m'],['Vespertino','v'],['Noturno','n']],{},input_html: {value: 'I'}, :class => 'form-control')
+                    .col-md-6
+                      .form-group
+                        = f.label 'Estuda atualmente'
+                        = f.select(:study,[['Sim','s'],['Não','n']],{},input_html: {value: 'N'}, :class => 'form-control')
+
+      / Dados Familiares
+      #familiares.tab-pane
+            h3.box-title Dados Familiares
+            .box-body
+             = simple_form_for([:admin, @curriculum]) do |f|
+              = f.error_notification
+
+              .form-inputs
+                .box-body
+                  .row
+                    .col-md-6
+                      .form-group
+                        = f.input :father
+                      .form-group
+                        = f.input :mother
+                    .col-md-6
+                      .form-group
+                        = f.input :profession_father
+                      .form-group
+                        = f.input :profession_mother
+
+      / Outros
+      #outros.tab-pane
+            h3.box-title Outros
+            .box-body
+             = simple_form_for([:admin, @curriculum]) do |f|
+              = f.error_notification
+
+              / - if notice == "created-true" || @curriculum.id != nil
+              - if @curriculum.id != nil
+                / Referencia
+                = link_to ' + Referências', "",data: {toggle: "modal", target: "#myModal"}
+                table.table.table-bordered.table-striped
+                  thead
+                    tr
+                      th Nome
+                      th Telefone
+                  tbody
+                    - @references.each do |reference|
+                      tr
+                        td = reference.name
+                        td = reference.phone
+
+                / Indicação
+                = link_to ' + Indicação', "",data: {toggle: "modal", target: "#myModalIndicacao"}
+                table.table.table-bordered.table-striped
+                  thead
+                    tr
+                      th Nome
+                      th Telefone
+                  tbody
+                    - @indications.each do |indication|
+                      tr
+                        td = indication.name
+                        td = indication.phone
+
+                / Cursos
+                = link_to ' + Cursos', "",data: {toggle: "modal", target: "#myModalCursos"}
+                table.table.table-bordered.table-striped
+                  thead
+                    tr
+                      th Curso
+                      th Outros
+                  tbody
+                    - @course_interations.each do |course_interation|
+                      tr
+                        td = course_interation.course.name
+                        td = course_interation.others
+
+              .form-actions
+                = f.button :submit
+
+
+  / Referências
+  #myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            span aria-hidden="true"  &times;
+          h4#myModalLabel.modal-title Referências
+        .modal-body
+          = simple_form_for([:admin, @reference]) do |f|
+            = f.error_notification
+
+            .form-inputs
+              = f.input :user_id, as: :hidden, input_html: { value: current_user.id}
+              = f.input :page, as: :hidden, input_html: { value: "curriculum"}
+              = f.input :page_id, as: :hidden, input_html: { value: params[:id]}
+              = f.input :name
+              = f.input :phone
+
+            .form-actions
+              = f.button :submit
+
+        .modal-footer
+          button.btn.btn-default data-dismiss="modal" type="button"  Close
+
+  / Indicação
+  #myModalIndicacao.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            span aria-hidden="true"  &times;
+          h4#myModalLabel.modal-title Indicação
+        .modal-body
+          = simple_form_for([:admin, @indication]) do |f|
+            = f.error_notification
+
+            .form-inputs
+              = f.input :user_id, as: :hidden, input_html: { value: current_user.id}
+              = f.input :page, as: :hidden, input_html: { value: "curriculum"}
+              = f.input :page_id, as: :hidden, input_html: { value: params[:id]}
+
+              = f.input :name
+              = f.input :phone
+              = f.input :cell
+              = f.input :email
+              = f.input :profession
+              = f.input :obs
+
+            .form-actions
+              = f.button :submit
+
+        .modal-footer
+          button.btn.btn-default data-dismiss="modal" type="button"  Close
+
+
+  / Cursos
+  #myModalCursos.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            span aria-hidden="true"  &times;
+          h4#myModalLabel.modal-title Cursos
+        .modal-body
+          = simple_form_for([:admin, @course_interation]) do |f|
+            = f.error_notification
+
+            .form-inputs
+              = f.input :user_id, as: :hidden, input_html: { value: current_user.id}
+              = f.input :page, as: :hidden, input_html: { value: "curriculum"}
+              = f.input :page_id, as: :hidden, input_html: { value: params[:id]}
+
+              = f.association :course
+              = f.input :others
+
+            .form-actions
+              = f.button :submit
+
+        .modal-footer
+          button.btn.btn-default data-dismiss="modal" type="button"  Close
+
+
+
+
+  a.btn.btn-primary href="/admin/curriculums"  Voltar

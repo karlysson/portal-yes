@@ -1,0 +1,78 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Anúncios
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-adn
+        | Home
+    li
+      a href="/admin/advertisings" Anúcios
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Anúncios
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Name:
+        a = " #{@advertising.name}"
+      li.list-group-item
+        b Categoria:
+        a = " #{@advertising.advertising_category.name}"
+      li.list-group-item
+        b Empresa:
+        a = " #{@advertising.company.name}"
+      li.list-group-item
+        b Endereço:
+        a = " #{@advertising.address}"
+      li.list-group-item
+        b Telefone:
+        a = " #{@advertising.phone}"
+      li.list-group-item
+        b E-mail:
+        a = " #{@advertising.email}"
+      li.list-group-item
+        b Site:
+        a = " #{@advertising.site}"
+      li.list-group-item
+        b Escolha:
+        - if @advertising.choice == "s"
+          a = " Sim"
+        - else
+          a = " Não"
+
+      li.list-group-item
+        b Facebook:
+        a = " #{@advertising.facebook}"
+      li.list-group-item
+        b Instagram:
+        a = " #{@advertising. instagram}"
+      li.list-group-item
+        b Twitter:
+        a = " #{@advertising.twitter}"
+      li.list-group-item
+        b Google:
+        a = " #{@advertising.google}"
+      li.list-group-item
+        b Descrição:
+        a = raw " #{@advertising.description}"
+  a.btn.btn-primary href="/admin/advertisings"
+      b Voltar
+/ = image_tag @advertising.cover.url(:thumb)
+
+
+
+
+
+

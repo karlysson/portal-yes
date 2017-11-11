@@ -1,0 +1,127 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Currículos
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-contao
+        | Home
+    li
+     a href="/admin/curriculums" Currículos
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Currículos
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Nome:
+        a = " #{@curriculum.name}"
+      li.list-group-item
+        b Data Nasc:
+        a = " #{@curriculum.birth}"
+      li.list-group-item
+        b Estado Civil:
+        a = " #{@curriculum.marital_status}"
+      li.list-group-item
+        b Identidade:
+        a = " #{@curriculum.identity}"
+      li.list-group-item
+        b CPF:
+        a = " #{@curriculum.cpf}"
+      li.list-group-item
+        b Título do Eleitor:
+        a = " #{@curriculum.elector_title}"
+      li.list-group-item
+        b Inscrição:
+        a = " #{@curriculum.inscription}"
+      li.list-group-item
+        b Zona:
+        a = " #{@curriculum.zone}"
+      li.list-group-item
+        b Seção:
+        a = " #{@curriculum.section}"
+      li.list-group-item
+        b CNH:
+        a = " #{@curriculum.cnh}"
+      li.list-group-item
+        b Experiência Profissional:
+        a = " #{@curriculum.professional_experience}"
+      li.list-group-item
+        b Preferência Profissional:
+        a = " #{@curriculum.professional_preference}"
+      li.list-group-item
+        b E-mail:
+        a = " #{@curriculum.email}"
+      li.list-group-item
+        b Endereço:
+        a = " #{@curriculum.address}"
+      li.list-group-item
+        b Rua:
+        a = " #{@curriculum.street}"
+      li.list-group-item
+        b Quadra:
+        a = " #{@curriculum.block}"
+      li.list-group-item
+        b Lote:
+        a = " #{@curriculum.lot}"
+      li.list-group-item
+        b Setor:
+        a = " #{@curriculum.sector}"
+      li.list-group-item
+        b Cidade:
+        a = " #{@curriculum.city.name}"
+      li.list-group-item
+        b CEP:
+        a = " #{@curriculum.zip_code}"
+      li.list-group-item
+        b Telefone:
+        a = " #{@curriculum.phone}"
+      li.list-group-item
+        b Celular:
+        a = " #{@curriculum.cell_phone}"
+      li.list-group-item
+        b Mensagem:
+        a = " #{@curriculum.message}"
+      li.list-group-item
+        b Estudo:
+        a = " #{@curriculum.study}"
+      li.list-group-item
+        b Ensino:
+        a = " #{@curriculum.teaching}"
+      li.list-group-item
+        b Período:
+        a = " #{@curriculum.period}"
+      li.list-group-item
+        b Curso:
+        a = " #{@curriculum.courses}"
+      li.list-group-item
+        b Empregado:
+        a = " #{@curriculum.employee}"
+      li.list-group-item
+        b Salário:
+        a = " #{@curriculum.salary}"
+      li.list-group-item
+        b Pai:
+        a = " #{@curriculum.father}"
+      li.list-group-item
+        b Profissão do Pai:
+        a = " #{@curriculum.profession_father}"
+      li.list-group-item
+        b Mãe:
+        a = " #{@curriculum.mother}"
+      li.list-group-item
+        b Profissão da Mãe:
+        a = " #{@curriculum.profession_mother}"
+  a.btn.btn-primary href="/admin/curriculums"
+      b Voltar

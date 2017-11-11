@@ -1,0 +1,80 @@
+link href="/site/css/banner_anuncio.css" rel="stylesheet"
+
+.row
+  .container
+    - @advertisings.where(:id => params[:id]).each do |advertising|
+      .col-md-12
+        h3 = "ANÚNCIO - #{advertising.name.upcase}"
+        hr
+        .col-md-8
+          .slider
+            input#id1 name="slide_switch" type="radio"
+            label for="id1" 
+              img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg" width="100"
+            img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"
+            /! Lets show the second image by default on page load
+            input#id2 checked="checked" name="slide_switch" type="radio"
+            label for="id2" 
+              img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg" width="100"
+            img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg"
+            input#id3 name="slide_switch" type="radio"
+            label for="id3" 
+              img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg" width="100"
+            img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg"
+            input#id4 name="slide_switch" type="radio"
+            label for="id4" 
+              img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg" width="100"
+            img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg"
+            input#id5 name="slide_switch" type="radio"
+            label for="id5" 
+              img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg" width="100"
+            img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"
+        .col-md-4
+          a href="mailto:pibusjeb@gmail.com" target="_blank" 
+          h3 = advertising.company.name
+          span.glyphicon.glyphicon-heart-empty
+          = " #{advertising.advertising_category.name}"
+          - if advertising.phone?
+            br
+            span.glyphicon.glyphicon-earphone
+            = " #{advertising.phone}"
+          - if advertising.email?
+            br
+            span.glyphicon.glyphicon-envelope
+            = " #{advertising.email}"
+          - if advertising.site?
+            br
+            span.glyphicon.glyphicon-globe
+            = " #{advertising.site}"
+          - if advertising.facebook?
+            br
+            span.glyphicon.glyphicon-globe
+            = " #{advertising.facebook}"
+          - if advertising.twitter?
+            br
+            span.glyphicon.glyphicon-globe
+            = " #{advertising.twitter}"
+          - if advertising.google?
+            br
+            span.glyphicon.glyphicon-globe
+            = " #{advertising.google}"
+          - if advertising.instagram?
+            br
+            span.glyphicon.glyphicon-triangle-right
+            = " #{advertising.instagram}"
+          br
+          - if advertising.address?
+            span.glyphicon.glyphicon-map-marker
+            = " #{advertising.address}"
+          - if advertising.description?
+            br
+            = raw advertising.description
+
+br
+br
+
+script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript" 
+
+
+= render 'anuncio/relacionado'
+

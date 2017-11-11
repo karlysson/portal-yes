@@ -1,0 +1,32 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Categoria do Anúncio
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-adn
+        | Home
+    li.active Anúncios
+    li
+      a href="/admin/advertising_categories" Categorias
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Categoria do Anúncio
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Name:
+        a = " #{@advertising_category.name}"
+  a.btn.btn-primary href="/admin/advertising_categories"
+      b Voltar

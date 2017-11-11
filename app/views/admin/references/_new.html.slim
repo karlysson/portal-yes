@@ -1,0 +1,23 @@
+#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog role="document" 
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Referências
+      .modal-body
+        = simple_form_for([:admin, @reference]) do |f|
+          = f.error_notification
+
+          .form-inputs
+            = f.input :name
+            = f.input :phone
+            = f.association :user
+
+          .form-actions
+            = f.button :submit
+
+
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        / button.btn.btn-primary type="button"  Salvar

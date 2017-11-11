@@ -1,0 +1,35 @@
+- if notice
+    br
+    .alert.alert-info role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Estados
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-map
+        | Home
+    li.active Cidades
+    li
+      a href="/admin/states" Estado
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Estado
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Nome:
+        a = " #{@state.name}"
+      li.list-group-item
+        b Sigla:
+        a = " #{@state.sigla}"
+  a.btn.btn-primary href="/admin/states"
+      b Voltar

@@ -1,0 +1,32 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Categoria Currículos
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-contao
+        | Home
+    li.active Currículos
+    li
+     a href="/admin/curriculum_categories" Categorias
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Categoria
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Nome:
+        a = " #{@curriculum_category.name}"
+  a.btn.btn-primary href="/admin/curriculum_categories"
+      b Voltar

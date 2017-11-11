@@ -1,0 +1,182 @@
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+.header {
+    background-color: #00b9e0;
+    height: 80px;
+}
+.vcenter {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.center-pills {
+    display: flex;
+    justify-content: center;
+}
+.backg{
+    -moz-border-radius: 2em;
+    -webkit-border-top-right-radius: 24px;
+    -webkit-border-top-left-radius: 24px; 
+    /*border-color: #b30e38;*/
+    border: 2px;
+    opacity: 9.0; 
+    /*border: #191919 solid 2px;*/
+}
+#searchForm {
+    position:absolute;
+    top:20%;
+}
+#searchForm .form-control {
+    font-size: 28px;
+    padding: 20px;
+    height: 75px;
+    background-color: #e2f8ff;
+}
+#searchForm .form-control-feedback {
+    font-size: 28px;
+    top: 20px;
+    right: 20px;
+    color: #aaa;
+}
+#searchForm .title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+#searchForm .title span {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+}
+.navbar {
+    background-color: #00b9e0;
+    height: 100px;
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #eee;
+    font-size: 16px;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: white;
+}
+.navbar-nav li a {
+    line-height: 60px;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image:none !important;
+    filter:none !important;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.services {
+    background-color: #e2f8ff;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.services ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 10px;
+}
+
+.services li a {
+    /*display: block;
+    width: 100%;*/
+    color: #009bcf;
+    font-size: 14px;
+    /*font-weight: 400;*/
+}
+.services li a:hover {
+    color: black;
+}
+.services .content {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    min-height: 111px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 38px;
+}
+.services .title {
+    color: white;
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.services .row {
+    margin-bottom: 20px;
+}
+.ads {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.ads .title {
+    font-size: 5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.ads .head {
+    margin-bottom: 20px;
+}
+.ads a {
+    font-size: 1.8rem;
+}
+.ads .filters {
+    margin-bottom: 40px;
+}
+a .ad-title {
+    margin-top: 10px;
+    color: #000;
+    text-align: left;
+}
+a .ad-subtitle {
+    color: #555;
+    text-align: left;
+    font-size: 1.5rem;
+}
+.ads .row {
+    margin-bottom: 30px;
+}
+footer {
+    background-color: #2f2f2f;
+    background-image: url("/goiania001.png");
+    padding-top: 50px;
+    color: white;
+    
+}
+footer a {
+    color: #ccc;
+    font-size: 1.5rem;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+
+}
+footer h3 {
+    margin-bottom: 30px;
+}
+footer a:hover,
+footer a:focus {
+    color: white;
+}
+footer .copyright {
+    background-color: #00b9e0;
+    margin-top: 50px;
+    padding: 30px 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+

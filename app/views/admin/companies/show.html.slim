@@ -1,0 +1,80 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Empresas
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-map
+        | Home
+    li
+      a href="/admin/companies" Empresas
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Empresa
+      br
+        = image_tag @company.logo.url(:thumb)
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Nome:
+        a = " #{@company.name}"
+      li.list-group-item
+        b Título:
+        a = " #{@company.title}"
+      li.list-group-item
+        b Endereço:
+        a = " #{@company.address}"
+      li.list-group-item
+        b Telefone:
+        a = " #{@company.phone}"
+      li.list-group-item
+        b E-mail:
+        a = " #{@company.email}"
+      li.list-group-item
+        b Latitude:
+        a = " #{@company.latitude}"
+      li.list-group-item
+        b Longitude:
+        a = " #{@company.longitude}"
+      li.list-group-item
+        b CEP:
+        a = " #{@company.zip_code}"
+      li.list-group-item
+        b Initial Care:
+        a = " #{@company.initial_care}"
+      li.list-group-item
+        b End Care:
+        a = " #{@company.end_care}"
+      li.list-group-item
+        b Initial Interval:
+        a = " #{@company.initial_interval}"
+      li.list-group-item
+        b End Range:
+        a = " #{@company.end_range}"
+      li.list-group-item
+        b Facebook:
+        a = " #{@company.md_facebook}"
+      li.list-group-item
+        b Google:
+        a = " #{@company.md_google}"
+      li.list-group-item
+        b Twitter:
+        a = " #{@company.md_twitter}"
+      li.list-group-item
+        b obs:
+        a = " #{@company.obs}"
+
+
+  a.btn.btn-primary href="/admin/companies"
+      b Voltar

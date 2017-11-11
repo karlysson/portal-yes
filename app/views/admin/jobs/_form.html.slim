@@ -1,0 +1,42 @@
+.col-xs-12
+
+    = simple_form_for([:admin, @job]) do |f|
+      = f.error_notification
+      .col-xs-6
+        .box.box-primary
+          .box-header.with-border
+            h3.box-title Dados
+            br
+            = f.label 'Status'
+            = f.select(:status,[['Aguardando', 'a'], ['Em análise', 'e'],['Cancelado', 'c'],['Concluído','u']],{},input_html: {value: 'h'}, :class => 'form-control')
+            .box-body
+            = f.input :name
+            = f.association :company
+            = f.label 'Nome e Endereço da empresa Visível'
+            = f.select(:visible,[['Não','n'],['Sim','s']],{},input_html: {value: 'n'}, :class => 'form-control')
+            = f.association :curriculum_profile
+            = f.association :curriculum_office
+            = f.input :number
+            = f.association :city
+            = f.label 'Ensino'
+            = f.select(:teaching,[['Fundamental Incompleto','f-i'],['Fundamental Completo','f-c'],['Médio Incompleto','m-i'],['Médio Completo','m-c'],['Superior Incompleto','s-i'],['Superior Completo','s-c']],{},input_html: {value: 'f-i'}, :class => 'form-control')
+            = f.label "CNH"
+            = f.select(:cnh,[['Não'],['A'],['B'],['AB'],['C'],['D'],['E'],['ACC']],{},input_html: {value: 'Não'}, :class => 'form-control')
+      .col-xs-6
+        .box.box-primary
+          .box-header.with-border
+            h3.box-title Outros
+            .box-body
+            = f.label 'Disponibilidade para viajar'
+            = f.select(:travel,[['Não','n'],['Sim','s']],{},input_html: {value: 'n'}, :class => 'form-control')
+            = f.label 'Disponibilidade de horário'
+            = f.select(:availability,[['Integral','i'],['Manhã','m'],['Tarde','t'],['Noite','n']],{},input_html: {value: 'n'}, :class => 'form-control')
+            = f.label "Descrição"
+            = f.cktext_area :description, as: :ckeditor, :class=>"form-control"
+            = f.input :benefit
+            .form-actions
+              = f.button :submit, :class => "btn  btn-success"
+br
+br
+.spacing
+  a.btn.btn-primary href="/admin/jobs"  Voltar

@@ -1,0 +1,45 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+
+section.content-header
+  h1
+    | Visualizar Página
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-file
+        | Home
+    li
+      a href="/admin/pages" Página
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Página
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Status:
+        a = " #{@page.status}"
+      li.list-group-item
+        b Nome:
+        a = " #{@page.name}"
+      li.list-group-item
+        b Título:
+        a = " #{@page.title}"
+      li.list-group-item
+        b Resumo:
+        a = " #{@page.summary}"
+      li.list-group-item
+        b Descrição:
+        a = " #{@page.description}"
+
+  a.btn.btn-primary href="/admin/pages"
+      b Voltar

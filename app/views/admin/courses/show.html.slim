@@ -1,0 +1,40 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+section.content-header
+  h1
+    | Visualizar Curso
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-book
+        | Home
+    li
+      a href="/admin/courses" Cursos
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Curso
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Name:
+        a = " #{@course.name}"
+      li.list-group-item
+        b Categoria do Curso:
+        a = " #{@course.course_category.name}"
+      li.list-group-item
+        b Carga Horária:
+        a = " #{@course.workload}"
+      li.list-group-item
+        b Obs:
+        a = " #{@course.obs}"
+  a.btn.btn-primary href="/admin/courses"
+      b Voltar

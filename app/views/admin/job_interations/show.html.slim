@@ -1,0 +1,35 @@
+/ p#notice = notice
+
+/ section.content-header
+/   h1
+/     | Visualizar Interação Vaga
+/     small Adminitrativo
+/   ol.breadcrumb
+/     li
+/       a href="/admin"
+/         i.fa.fa-buysellads
+/         | Home
+/     li.active Vaga
+
+/ br
+
+/ .col-xs-12
+/   .box.box-primary
+/     .box-body.box-profile
+/       h3.box-title
+/         | Interação Vaga
+/     ul.list-group.list-group-unbordered
+/       li.list-group-item
+/         b Página:
+/         a = " #{@job_interation.page}"
+/       li.list-group-item
+/         b Código Página:
+/         a = " #{@job_interation.page_id}"
+/       li.list-group-item
+/         b Vaga:
+/         a = " #{@job_interation.job.name}"
+/       li.list-group-item
+/         b Curso:
+/         a = " #{@job_interation.course.name}"
+/   a.btn.btn-primary href="/admin/job_interations"
+/       b Voltar

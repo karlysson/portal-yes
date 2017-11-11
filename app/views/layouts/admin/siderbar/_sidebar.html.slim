@@ -1,0 +1,4 @@
+- if current_user.permission.prefix == "a"
+  = render 'layouts/admin/siderbar/admin'
+- if current_user.permission.prefix == "e"
+  = render 'layouts/admin/siderbar/client'

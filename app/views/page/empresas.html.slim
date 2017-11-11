@@ -1,0 +1,69 @@
+.container
+	- @pages.each do |page|
+	  h3 = page.title
+	  = raw page.description
+	br
+
+	/ .row
+	/   - @companies.each do |company|
+	/ 	  .col-md-4
+	/ 	    a href="#" 
+	/ 	      img.img-responsive src="#{company.logo.url(:medium)}"
+	/ 	    .ad-title = company.name
+	/ 	    .ad-subtitle = company.phone
+	/ br
+	/ br
+
+
+
+
+css:
+	.classif {
+	    position: absolute;
+	    left: 15px;
+	    top: 10px;
+	    /*width: 215px;*/
+	    width: 215px;
+	    padding: 5px 0px;
+	    text-transform: uppercase;
+	    color: #FFFFFF;
+	    text-align: center;
+	    opacity: 0.9;
+	}
+.container
+  .row
+  	.col-md-12
+  		- @companies.each do |company|
+		    .col-md-3
+		      .thumbnail
+		      	a href="/anuncio"
+		        	img.img-responsive.img_company alt="#{company.name}" src="#{company.logo.url(:medium)}" 
+		        .caption
+		          a href="mailto:pibusjeb@gmail.com" target="_blank" 
+		          h3 = company.name
+		          span.fa.fa-home.fa-fw
+		          = " #{company.title}"
+		          - if company.phone?
+		            br
+		            span.fa.fa-phone.fa-fw
+		            = " #{company.phone}"
+		          - if company.email?
+		            br
+		            span.fa.fa-envelope.fa-fw
+		            = link_to " #{company.email}", "mailto:#{company.email}", :target => "_blank"
+		          - if company.md_facebook?
+		            br
+		            span.fa.fa-facebook.fa-fw
+		            = link_to " #{company.md_facebook}", company.md_facebook, :target => "_blank"
+		          - if company.md_twitter?
+		            br
+		            span.fa.fa-twitter.fa-fw
+		            = link_to " #{company.md_twitter}", company.md_twitter, :target => "_blank"
+		          - if company.md_google?
+		            br
+		            span.fa.fa-google-plus.fa-fw
+		            = link_to " #{company.md_google}", company.md_google, :target => "_blank"
+		          br
+		          - if company.address?
+		            span.fa.fa-map-marker.fa-fw
+		            = " #{company.address}"

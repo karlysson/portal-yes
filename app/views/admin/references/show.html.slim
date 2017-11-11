@@ -1,0 +1,39 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+
+section.content-header
+  h1
+    | Visualizar Referência
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-registered
+        | Home
+    li.active Currículos
+    li
+     a href="/admin/references" Referência
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Referência
+    ul.list-group.list-group-unbordered
+      li.list-group-item
+        b Nome:
+        a = " #{@reference.name}"
+      li.list-group-item
+        b Telefone:
+        a = " #{@reference.phone}"
+      li.list-group-item
+        b Usuário:
+        a = " #{@reference.user.name}"
+  a.btn.btn-primary href="/admin/references"
+      b Voltar

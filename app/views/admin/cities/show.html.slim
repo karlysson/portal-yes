@@ -1,0 +1,35 @@
+- if notice
+    br
+    .alert.alert-success role="alert"
+      p#notice = notice
+end
+
+
+section.content-header
+  h1
+    | Visualizar Cidades
+    small Adminitrativo
+  ol.breadcrumb
+    li
+      a href="/admin"
+        i.fa.fa-map
+        | Home
+    li
+      a href="/admin/cities" Cidades
+
+br
+
+.col-xs-12
+  .box.box-primary
+    .box-body.box-profile
+      h3.box-title
+        | Cidade
+    ul.list-group.list-group-unbordered.spacing
+      li.list-group-item
+        b Nome:
+        a = " #{@city.name}"
+      li.list-group-item
+        b Estado:
+        a = " #{@city.state.name}"
+  a.btn.btn-primary href="/admin/cities"
+      b Voltar

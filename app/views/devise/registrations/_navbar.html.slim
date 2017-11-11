@@ -1,0 +1,36 @@
+/ / nav.navbar.navbar-default
+/ /   .container-fluid
+/ /     .navbar-header
+/ /       button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+/ /         span.sr-only Toggle navigation
+/ /         span.icon-bar
+/ /         span.icon-bar
+/ /         span.icon-bar
+/ /       a.navbar-brand href="#" 
+/ /         img alt="Brand" src="/site/images/logo_header.png"
+/ /     .collapse.navbar-collapse.collapse
+/ /       ul.nav.navbar-nav.navbar-right             
+/ /         - if current_user != nil
+/ /           li
+/ /             a href="/admin" target="_blank"
+/ /               i.glyphicon.glyphicon-user
+/ /               = " #{current_user.name}"
+/ /           li
+/ /             a href="/admin" target="_blank"
+/ /               i.glyphicon.glyphicon-cog
+/ /               = " PAINEL"
+
+/ /           li.dropdown.messages-menu
+/ /             a.dropdown-toggle href="/users/sign_out" data-method="DELETE"
+/ /               i.glyphicon.glyphicon-lock
+/ /               span.hidden-xs = " SAIR"          
+/ /         - else 
+/ /           li
+/ /             a href="/users/sign_up" target="_blank"
+/ /               i.glyphicon.glyphicon-plus
+/ /               = " Cadastrar-se"    
+/ /           li
+/ /             a href="/users/sign_in" target="_blank"
+/ /               i.glyphicon.glyphicon-home
+/ /               = " Acessar Conta"
+/              

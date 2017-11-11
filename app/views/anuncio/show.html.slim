@@ -1,0 +1,60 @@
+link href="/site/css/banner_anuncio.css" rel="stylesheet"
+
+.row
+  .container
+    .col-md-12
+      - @advertisings.where(:id => params[:id]).each do |advertising|
+        h3 = "ANÚNCIO - #{advertising.name.upcase}"
+        hr
+        .col-md-6
+          a href="#{advertising.site}" target="_blank"
+           img.img-responsive alt="#{advertising.name}" src="#{advertising.cover.url(:original)}"
+        .col-md-6
+          a href="mailto:pibusjeb@gmail.com" target="_blank" 
+          h3 = advertising.company.name
+          span.fa.fa-home.fa-fw
+          = " #{advertising.advertising_category.name}"
+          - if advertising.phone?
+            br
+            span.fa.fa-phone.fa-fw
+            = " #{advertising.phone}"
+          - if advertising.email?
+            br
+            span.fa.fa-envelope.fa-fw
+            = link_to " #{advertising.email}", "mailto:#{advertising.email}", :target => "_blank"
+          - if advertising.site?
+            br
+            span.fa.fa-globe.fa-fw
+            = link_to " #{advertising.site}", advertising.site, :target => "_blank"
+          - if advertising.facebook?
+            br
+            span.fa.fa-facebook.fa-fw
+            = link_to " #{advertising.facebook}", advertising.facebook, :target => "_blank"
+          - if advertising.twitter?
+            br
+            span.fa.fa-twitter.fa-fw
+            = link_to " #{advertising.twitter}", advertising.twitter, :target => "_blank"
+          - if advertising.google?
+            br
+            span.fa.fa-google-plus.fa-fw
+            = link_to " #{advertising.google}", advertising.google, :target => "_blank"
+          - if advertising.instagram?
+            br
+            span.fa.fa-instagram.fa-fw
+            = link_to " #{advertising.instagram}", advertising.instagram, :target => "_blank"
+          br
+          - if advertising.address?
+            span.fa.fa-map-marker.fa-fw
+            = " #{advertising.address}"
+          - if advertising.description?
+            hr
+            = raw advertising.description
+
+br
+br
+
+script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript" 
+
+
+= render 'anuncio/relacionado'
+

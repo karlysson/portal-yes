@@ -1,0 +1,65 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+
+        <%@count=0%>
+        <% @banners.each do |banner| %>
+            
+            <% if @count==0%>
+                <% @class="active" %>
+            <%else%>
+                <% @class="" %>
+            <%end%>
+
+        <li data-target="#myCarousel" data-slide-to= "<%= @count %>" class= "<%= @class %>"></li>
+        <%@count +=1%>
+        <% end %>
+
+
+    </ol>
+    <!-- Wrapper for carousel items -->
+    
+
+
+    <div class="carousel-inner">
+
+        <% @active="true"%>
+
+        <% @banners.each do |banner| %>
+
+            <% if @active=="true"%>
+                <% @active="item active" %>
+            <% else %>
+                <% @active="item" %>
+            <% end %>
+
+            <div class="<%= @active %>">
+                <a href="<%= banner.url %>" target="<%= banner.target%>">
+                    <%= image_tag banner.image, :alt=> "#{banner.name}", :class=> "slide-image" %>
+                </a>
+            </div>
+
+        <% @active="false" %>
+
+        <% end %>
+
+    </div>
+
+
+<!--     <form class="col-sm-6 col-sm-offset-3" id="searchForm">
+        <div class="title">
+            <span>O que você procura?</span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" id="inputSuccess2" placeholder="Vaga para publicitário em Goiânia"/>
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+    </form> -->
+    <!-- Carousel controls -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
